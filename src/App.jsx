@@ -1,9 +1,8 @@
-import "./App.css";
-
+import ProductForm from "./components/ProductForm";
 function App() {
   return (
     <>
-      <p className="bg-blue-300">Hello world</p>
+      <ProductForm />
     </>
   );
 }
