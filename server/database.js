@@ -11,7 +11,8 @@ const db = new sqlite3.Database("./db/inventory.db", (err) => {
 db.run(`
   CREATE TABLE IF NOT EXISTS products (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
+    productName TEXT NOT NULL,
+    productDescription TEXT,
     price INTEGER,
     quantity INTEGER
   )
