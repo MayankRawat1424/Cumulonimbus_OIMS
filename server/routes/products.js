@@ -3,7 +3,7 @@ import db from "../database.js";
 
 const router = express.Router();
 
-router.post("/createProduct", (req, res) => {
+router.post("/products", (req, res) => {
   const { productName, productDescription, price, quantity } = req.body;
   const query = `
     INSERT INTO products (productName, productDescription, price, quantity)
@@ -25,6 +25,20 @@ router.post("/createProduct", (req, res) => {
       });
     }
   );
+});
+
+router.get("/products", (req, res) => {
+  const query = `SELECT * FROM products`;
+
+  db.all(query, [], (err, rows) => {
+    if (err) {
+      return res.status(500).json({
+        message: "Damn son you failed a select query",
+        error: err.message,
+      });
+    }
+    return res.json(rows);
+  });
 });
 
 export default router;
