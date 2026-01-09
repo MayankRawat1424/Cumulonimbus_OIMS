@@ -3,7 +3,7 @@ import db from "../database.js";
 
 const router = express.Router();
 
-router.post("/addSupplier", (req, res) => {
+router.post("/suppliers", (req, res) => {
   const {
     Supplier_name,
     company_name,
@@ -45,7 +45,7 @@ router.post("/addSupplier", (req, res) => {
   );
 });
 
-router.delete("/supplier/:id", (req, res) => {
+router.delete("/suppliers/:id", (req, res) => {
   const { id } = req.params;
   const query = `DELETE FROM suppliers WHERE id = ?`;
 
