@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # SQLite database
-# *.db
+server/db/inventory.db

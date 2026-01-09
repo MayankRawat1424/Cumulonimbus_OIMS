@@ -32,5 +32,4 @@ db.run(`
   )
 `);
 
-
 export default db;

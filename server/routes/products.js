@@ -3,7 +3,7 @@ import db from "../database.js";
 
 const router = express.Router();
 
-router.post("/product", (req, res) => {
+router.post("/products", (req, res) => {
   const { productName, productDescription, price, quantity } = req.body;
   const query = `
     INSERT INTO products (productName, productDescription, price, quantity)
@@ -28,14 +28,11 @@ router.post("/product", (req, res) => {
 });
 
 router.delete("/product/:id", (req, res) => {
-  const{id} = req.params;
+  const { id } = req.params;
   const query = `DELETE FROM products WHERE id = ?`;
 
-  db.run(
-    query,
-    [id],
-    function(err){
-      if (err) {
+  db.run(query, [id], function (err) {
+    if (err) {
       return res.status(500).json({
         message: "Database error while deleting product",
         error: err.message,
@@ -46,8 +43,21 @@ router.delete("/product/:id", (req, res) => {
     }
 
     return res.status(200).json({ message: "Product deleted successfully" });
-      
-    });
+  });
+});
+
+router.get("/products", (req, res) => {
+  const query = `SELECT * FROM products`;
+
+  db.all(query, [], (err, rows) => {
+    if (err) {
+      return res.status(500).json({
+        message: "Damn son you failed a select query",
+        error: err.message,
+      });
+    }
+    return res.json(rows);
+  });
 });
 
 export default router;
