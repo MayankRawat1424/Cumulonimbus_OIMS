@@ -27,7 +27,7 @@ router.post("/products", (req, res) => {
   );
 });
 
-router.delete("/product/:id", (req, res) => {
+router.delete("/products/:id", (req, res) => {
   const { id } = req.params;
   const query = `DELETE FROM products WHERE id = ?`;
 
