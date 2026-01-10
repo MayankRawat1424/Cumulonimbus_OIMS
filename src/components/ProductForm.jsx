@@ -2,12 +2,14 @@ import React from "react";
 import { useState } from "react";
 
 const ProductForm = () => {
-  const [form, setForm] = useState({
+  const initialFormState = {
     productName: "",
     productDescription: "",
     price: 0,
     quantity: 0,
-  });
+  };
+
+  const [form, setForm] = useState(initialFormState);
 
   const validateForm = () => {
     if (form.productName === "") {
@@ -41,14 +43,16 @@ const ProductForm = () => {
       });
       const data = await response.json();
       console.log("Success", data);
+      alert("Created Product");
+      setForm(initialFormState);
     } catch (error) {
       console.log("Fuck", error);
     }
   };
 
   return (
-    <div className="w-2xl py-4 px-6 mx-auto mt-16 border border-black shadow-lg">
-      <h1 className="font-bold text-3xl mb-6">Products</h1>
+    <div className="w-2xl py-4 px-6 mx-auto mt-16 shadow-lg bg-white rounded-md">
+      <h1 className="font-bold text-3xl mb-6">Create Products</h1>
       <form action="" className="flex flex-col ">
         <label htmlFor="">Product Name</label>
         <input
