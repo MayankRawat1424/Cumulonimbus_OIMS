@@ -10,7 +10,6 @@ Hosting: Google Firebase
 Mandatory:
 --------------------------------------------------
 Add/edit/delete products
-Product categories & variants (size, color, model)
 Real-time stock levels
 Minimum stock (reorder level) alerts
 Overstock & out-of-stock indicators
@@ -34,6 +33,7 @@ Reorder quantity suggestions
 Completed
 --------------------------------------------------
 Mandatory:
+Product categories & variants (size, color, model)
 
 Extra Features:
 

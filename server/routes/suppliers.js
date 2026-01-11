@@ -65,7 +65,8 @@ router.delete("/suppliers/:id", (req, res) => {
 
 router.put("/suppliers/:id", (req, res) => {
   const { id } = req.params;
-  const {Supplier_name,
+  const {
+    Supplier_name,
     company_name,
     email,
     phone,
@@ -80,25 +81,35 @@ router.put("/suppliers/:id", (req, res) => {
     SET Supplier_name = ?, company_name = ?, email = ?, phone = ?, address = ?, city = ?, state = ?, gst_number = ?
     WHERE id = ?
   `;
-  
+
   db.run(
     query,
-    [Supplier_name, company_name, email, phone, address, city, state, gst_number, id],
-    function(err){
-      if(err){
+    [
+      Supplier_name,
+      company_name,
+      email,
+      phone,
+      address,
+      city,
+      state,
+      gst_number,
+      id,
+    ],
+    function (err) {
+      if (err) {
         return res.status(500).json({
-          message : "Error updating supplier",
-          error : err.message,
+          message: "Error updating supplier",
+          error: err.message,
         });
       }
-      if(this.changes === 0){
+      if (this.changes === 0) {
         return res.status(404).json({
-          message : "Supplier not found"
+          message: "Supplier not found",
         });
       }
       return res.status(200).json({
-        message : "Supplier updated successfully"
-      })
+        message: "Supplier updated successfully",
+      });
     }
   );
 });

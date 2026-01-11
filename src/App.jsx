@@ -1,11 +1,12 @@
-import ProductForm from "./components/ProductForm";
-import ProductTable from "./components/ProductTable";
+import React from "react";
+import Products from "./components/Products";
+import Suppliers from "./components/Suppliers";
 
 function App() {
   return (
     <>
-      <ProductForm />
-      <ProductTable />
+      <Products />
+      {/* <Suppliers /> */}
     </>
   );
 }
