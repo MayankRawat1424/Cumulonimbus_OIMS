@@ -4,6 +4,7 @@ import ProductForm from "./ProductForm";
 import ProductTable from "./ProductTable";
 
 const Products = () => {
+  const [open, setOpen] = useState(false);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -26,8 +27,10 @@ const Products = () => {
 
   return (
     <>
-      <ProductForm onProductCreated={fetchProduct} />
-      <ProductTable products={products} loading={loading} />
+      {open && (
+        <ProductForm onProductCreated={fetchProduct} setOpen={setOpen} />
+      )}
+      <ProductTable products={products} loading={loading} setOpen={setOpen} />
     </>
   );
 };
