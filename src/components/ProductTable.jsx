@@ -1,12 +1,23 @@
 import React from "react";
 // import { useEffect, useState } from "react";
 
-const ProductTable = ({ products, loading }) => {
+const ProductTable = ({ products, loading, setOpen }) => {
   if (loading) return <p>Loading products...</p>;
 
   return (
-    <div className="w-4xl py-4 px-6 mx-auto mt-16 shadow-lg bg-white rounded-md">
-      <h1 className="font-bold text-3xl mb-6">Products</h1>
+    <div className="w-4xl py-4 px-8 mx-auto mt-16 shadow-lg bg-white">
+      <div className="flex justify-between">
+        <h1 className="font-bold text-3xl mb-6">Inventory</h1>
+        <button
+          className="mb-6 px-2 border-2 border-gray-600 hover:cursor-pointer hover:bg-gray-600 hover:text-white active:bg-gray-800"
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          Add Product
+        </button>
+      </div>
+
       {products.length === 0 ? (
         <p>No product found</p>
       ) : (

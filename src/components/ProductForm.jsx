@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
 
-const ProductForm = ({ onProductCreated }) => {
+const ProductForm = ({ onProductCreated, setOpen }) => {
   const initialFormState = {
     productName: "",
     productDescription: "",
-    color: "#ffffff",
+    color: "#D1D5DB",
     subCategory: "",
     model: "",
     price: 0,
@@ -72,13 +72,26 @@ const ProductForm = ({ onProductCreated }) => {
   };
 
   return (
-    <div className="w-2xl py-4 px-6 mx-auto mt-16 shadow-lg bg-white rounded-md">
-      <h1 className="font-bold text-3xl mb-6">Create Products</h1>
-      <form action="" className="flex flex-col ">
-        <label htmlFor="">Product Name</label>
+    <div className="w-2/5 py-4 px-8 mx-auto shadow-lg bg-white fixed inset-8 overflow-y-scroll">
+      <div className="flex justify-between">
+        <h1 className="font-bold text-3xl mb-6 ">Create Product</h1>
+        <button
+          className="mb-6 px-2 border-2 border-gray-600 hover:cursor-pointer hover:bg-gray-600 hover:text-white active:bg-gray-800"
+          onClick={() => {
+            setOpen(false);
+          }}
+        >
+          Close
+        </button>
+      </div>
+
+      <form action="" className="flex flex-col">
+        <label htmlFor="" className="pb-1 font-semibold">
+          Product Name
+        </label>
         <input
           type="text"
-          className="border border-black mb-4 px-1"
+          className="border border-black mb-6 p-1"
           value={form.productName}
           onChange={(e) => {
             setForm({ ...form, productName: e.target.value });
@@ -86,9 +99,11 @@ const ProductForm = ({ onProductCreated }) => {
           placeholder="product name"
         />
 
-        <label htmlFor="">Product Description</label>
+        <label htmlFor="" className="pb-1 font-semibold">
+          Product Description
+        </label>
         <textarea
-          className="border border-black mb-4 px-1"
+          className="border border-black mb-6 px-1 h-32"
           value={form.productDescription}
           onChange={(e) =>
             setForm({ ...form, productDescription: e.target.value })
@@ -96,21 +111,25 @@ const ProductForm = ({ onProductCreated }) => {
           placeholder="Describe the product"
         />
 
-        <label for="colorPicker">Color</label>
+        <label htmlFor="" className="pb-1 font-semibold">
+          Color
+        </label>
         <input
           type="color"
           id="colorPicker"
           name="colorPicker"
-          className="w-full mb-4"
+          className="w-full mb-6"
           value={form.color}
           onChange={(e) => {
             setForm({ ...form, color: e.target.value });
           }}
         />
 
-        <label for="">Sub-Category</label>
+        <label htmlFor="" className="pb-1 font-semibold">
+          Sub-Category
+        </label>
         <select
-          className="border border-black mb-4 px-1 py-1"
+          className="border border-black mb-6 px-1 py-1"
           value={form.subCategory}
           onChange={(e) => {
             setForm({ ...form, subCategory: e.target.value });
@@ -125,52 +144,65 @@ const ProductForm = ({ onProductCreated }) => {
           ))}
         </select>
 
-        <label htmlFor="">Model</label>
+        <label htmlFor="" className="pb-1 font-semibold">
+          Model
+        </label>
         <input
           type="text"
-          className="border border-black mb-4 px-1"
+          className="border border-black mb-6 p-1"
           value={form.model}
           onChange={(e) => setForm({ ...form, model: e.target.value })}
           placeholder="Make/ Model/ Year"
         />
 
-        <label htmlFor="">Price</label>
+        <label htmlFor="" className="pb-1 font-semibold">
+          Price
+        </label>
         <input
           type="number"
-          className="border border-black mb-4 px-1"
+          className="border border-black mb-6 p-1"
           value={form.price}
           onChange={(e) => {
             setForm({ ...form, price: e.target.value });
           }}
+          min={0}
         />
 
-        <label htmlFor="">Quantity</label>
+        <label htmlFor="" className="pb-1 font-semibold">
+          Quantity
+        </label>
         <input
           type="number"
-          className="border border-black mb-4 px-1"
+          className="border border-black mb-6 p-1"
           value={form.quantity}
           onChange={(e) => {
             setForm({ ...form, quantity: e.target.value });
           }}
+          min={0}
         />
 
-        <label htmlFor="">Unit</label>
+        <label htmlFor="" className="pb-1 font-semibold">
+          Unit
+        </label>
         <input
           type="text"
-          className="border border-black mb-4 px-1"
+          className="border border-black mb-6 p-1"
           value={form.unit}
           onChange={(e) => setForm({ ...form, unit: e.target.value })}
           placeholder="kg/ ml/ fl/ oz"
         />
 
-        <label htmlFor="">Stock</label>
+        <label htmlFor="" className="pb-1 font-semibold">
+          Stock
+        </label>
         <input
           type="number"
-          className="border border-black mb-4 px-1"
+          className="border border-black mb-4 p-1"
           value={form.stock}
           onChange={(e) => {
             setForm({ ...form, stock: e.target.value });
           }}
+          min={0}
         />
 
         <button
