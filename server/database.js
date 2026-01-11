@@ -13,8 +13,13 @@ db.run(`
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     productName TEXT NOT NULL,
     productDescription TEXT,
+    color TEXT, 
+    subCategory TEXT,
+    model TEXT,
     price INTEGER,
-    quantity INTEGER
+    quantity INTEGER,
+    unit TEXT,
+    stock INTEGER
   )
 `);
 

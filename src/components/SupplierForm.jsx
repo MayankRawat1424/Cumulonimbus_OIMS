@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const ProductForm = ({ onProductCreated }) => {
+const SupplierForm = () => {
   const initialFormState = {
     productName: "",
     productDescription: "",
@@ -14,15 +14,7 @@ const ProductForm = ({ onProductCreated }) => {
     stock: "0",
   };
 
-  const SubCategories = [
-    { id: 1, value: "electronics", label: "Electronics" },
-    { id: 2, value: "consumables", label: "Consumables" },
-    { id: 3, value: "domestic_goods", label: "Domestic Goods" },
-    { id: 4, value: "chemicals", label: "Chemicals" },
-    { id: 5, value: "medical", label: "Medical" },
-    { id: 6, value: "industrial", label: "Industrial" },
-    { id: 7, value: "stationery", label: "Stationery" },
-  ];
+  const SubCategories = [{ id: 1, value: "electronics", label: "Electronics" }];
 
   const [form, setForm] = useState(initialFormState);
 
@@ -31,16 +23,6 @@ const ProductForm = ({ onProductCreated }) => {
       alert("Product name is required");
       return false;
     }
-    if (form.unit === "") {
-      alert("Unit for measurement is required");
-      return false;
-    }
-
-    if (form.price <= 0) {
-      alert("Price must be greater than 0");
-      return false;
-    }
-
     if (form.quantity <= 0) {
       alert("Quantity must be greater than 0");
       return false;
@@ -64,8 +46,6 @@ const ProductForm = ({ onProductCreated }) => {
       console.log("Success", data);
       alert("Created Product");
       setForm(initialFormState);
-
-      onProductCreated();
     } catch (error) {
       console.log("Fuck", error);
     }
@@ -184,4 +164,4 @@ const ProductForm = ({ onProductCreated }) => {
   );
 };
 
-export default ProductForm;
+export default SupplierForm;
