@@ -35,7 +35,7 @@ const SupplierForm = ({ onSupplierCreated, setOpen }) => {
     }
 
     if (form.gstNumber === "") {
-      alert("Quantity must be greater than 0");
+      alert("email must be greater than 0");
       return false;
     }
     return true;
@@ -85,96 +85,87 @@ const SupplierForm = ({ onSupplierCreated, setOpen }) => {
         <input
           type="text"
           className="border border-black mb-6 p-1"
-          value={form.productName}
+          value={form.supplierName}
           onChange={(e) => {
-            setForm({ ...form, productName: e.target.value });
+            setForm({ ...form, supplierName: e.target.value });
           }}
-          placeholder="product name"
+          placeholder="Supplier name"
         />
 
         <label htmlFor="" className="pb-1 font-semibold">
-          Product Description
+          Supplier Address
         </label>
         <textarea
           className="border border-black mb-6 px-1 h-32"
-          value={form.productDescription}
+          value={form.address}
           onChange={(e) =>
-            setForm({ ...form, productDescription: e.target.value })
+            setForm({ ...form, address: e.target.value })
           }
-          placeholder="Describe the product"
+          placeholder="Enter suppliers address"
         />
 
         <label htmlFor="" className="pb-1 font-semibold">
-          Color
-        </label>
-        <input
-          type="color"
-          id="colorPicker"
-          name="colorPicker"
-          className="w-full mb-6"
-          value={form.color}
-          onChange={(e) => {
-            setForm({ ...form, color: e.target.value });
-          }}
-        />
-
-        <label htmlFor="" className="pb-1 font-semibold">
-          Model
+          Company Name
         </label>
         <input
           type="text"
           className="border border-black mb-6 p-1"
-          value={form.model}
-          onChange={(e) => setForm({ ...form, model: e.target.value })}
-          placeholder="Make/ Model/ Year"
+          value={form.companyName}
+          onChange={(e) => setForm({ ...form, companyName: e.target.value })}
         />
 
         <label htmlFor="" className="pb-1 font-semibold">
-          Price
+          Email
         </label>
         <input
-          type="number"
+          type="email"
           className="border border-black mb-6 p-1"
-          value={form.price}
+          value={form.email}
           onChange={(e) => {
-            setForm({ ...form, price: e.target.value });
+            setForm({ ...form, email: e.target.value });
           }}
           min={0}
         />
 
         <label htmlFor="" className="pb-1 font-semibold">
-          Quantity
+          Phone_Number
         </label>
         <input
-          type="number"
+          type="tel"
           className="border border-black mb-6 p-1"
-          value={form.quantity}
-          onChange={(e) => {
-            setForm({ ...form, quantity: e.target.value });
-          }}
-          min={0}
+          value={form.phone}
+          onChange={(e) => setForm({ ...form, phone: e.target.value })}
         />
 
         <label htmlFor="" className="pb-1 font-semibold">
-          Unit
+          City
         </label>
         <input
           type="text"
           className="border border-black mb-6 p-1"
-          value={form.unit}
-          onChange={(e) => setForm({ ...form, unit: e.target.value })}
-          placeholder="kg/ ml/ fl/ oz"
+          value={form.city}
+          onChange={(e) => setForm({ ...form, city: e.target.value })}
         />
 
         <label htmlFor="" className="pb-1 font-semibold">
-          Stock
+          State
+        </label>
+        <input
+          type="text"
+          className="border border-black mb-6 p-1"
+          value={form.state}
+          onChange={(e) => setForm({ ...form, state: e.target.value })}
+        />
+
+        <label htmlFor="" className="pb-1 font-semibold">
+          GST_Number
         </label>
         <input
           type="number"
           className="border border-black mb-4 p-1"
-          value={form.stock}
+          value={form.gstNumber}
           onChange={(e) => {
-            setForm({ ...form, stock: e.target.value });
+            setForm({ ...form, gstNumber: e.target.value });
           }}
           min={0}
         />
