@@ -64,7 +64,7 @@ const ProductForm = ({ onProductCreated, setOpen }) => {
       console.log("Success", data);
       alert("Created Product");
       setForm(initialFormState);
-
+      setOpen(false);
       onProductCreated();
     } catch (error) {
       console.log("Fuck", error);
