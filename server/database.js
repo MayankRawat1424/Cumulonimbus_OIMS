@@ -26,14 +26,14 @@ db.run(`
 db.run(`
   CREATE TABLE IF NOT EXISTS suppliers (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    Supplier_name TEXT NOT NULL,
-    company_name TEXT,
+    supplierName TEXT NOT NULL,
+    companyName TEXT,
     email TEXT,
     phone TEXT,
     address TEXT,
     city TEXT,
     state TEXT,
-    gst_number TEXT
+    gstNumber TEXT
   )
 `);
 
