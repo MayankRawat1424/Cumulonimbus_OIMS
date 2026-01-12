@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const SupplierForm = ({ onProductCreated, setOpen }) => {
+const SupplierForm = ({ onSupplierCreated, setOpen }) => {
   const initialFormState = {
     supplierName: "",
     companyName: "",
@@ -119,25 +119,6 @@ const SupplierForm = ({ onProductCreated, setOpen }) => {
         />
 
         <label htmlFor="" className="pb-1 font-semibold">
-          Sub-Category
-        </label>
-        <select
-          className="border border-black mb-6 px-1 py-1"
-          value={form.subCategory}
-          onChange={(e) => {
-            setForm({ ...form, subCategory: e.target.value });
-          }}
-        >
-          <option value="">SELECT SUB CATEGORY</option>
-
-          {SubCategories.map((item) => (
-            <option key={item.id} value={item.value}>
-              {item.label}
-            </option>
-          ))}
-        </select>
-
-        <label htmlFor="" className="pb-1 font-semibold">
           Model
         </label>
         <input
@@ -209,4 +190,4 @@ const SupplierForm = ({ onProductCreated, setOpen }) => {
   );
 };
 
-export default ProductForm;
+export default SupplierForm;
