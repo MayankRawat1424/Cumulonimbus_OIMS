@@ -7,7 +7,7 @@ const Suppliers = () => {
   const [suppliers, setSuppliers] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchProduct = async () => {
+  const fetchSupplier = async () => {
     try {
       setLoading(true);
       const res = await fetch("http://localhost:5000/api/products");
@@ -21,12 +21,14 @@ const Suppliers = () => {
   };
 
   useEffect(() => {
-    fetchProduct();
+    fetchSupplier();
   }, []);
 
   return (
     <>
-      {open && <SupplierForm setOpen={setOpen} />}
+      {open && (
+        <SupplierForm setOpen={setOpen} onSupplierCreated={fetchSupplier} />
+      )}
       <SupplierTable
         setOpen={setOpen}
         loading={loading}
