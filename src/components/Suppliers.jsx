@@ -10,7 +10,7 @@ const Suppliers = () => {
   const fetchSupplier = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/api/products");
+      const res = await fetch("http://localhost:5000/api/suppliers");
       const data = await res.json();
       setSuppliers(data);
     } catch (err) {

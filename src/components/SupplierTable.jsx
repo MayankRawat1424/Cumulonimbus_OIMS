@@ -25,24 +25,24 @@ const SupplierTable = ({ suppliers, loading, setOpen }) => {
           <thead>
             <tr className="bg-gray-300 text-gray-800 text-left">
               <th className="px-2 py-1">id</th>
-              <th className="px-2 py-1">Product</th>
-              <th className="px-2 py-1">Category</th>
-              <th className="px-2 py-1">Price</th>
-              <th className="px-2 py-1">Quantity</th>
-              <th className="px-2 py-1">In Stock</th>
+              <th className="px-2 py-1">Name</th>
+              <th className="px-2 py-1">Company Name</th>
+              <th className="px-2 py-1">Ph.</th>
+              <th className="px-2 py-1">Email</th>
+              <th className="px-2 py-1">Address, City, State</th>
             </tr>
           </thead>
           <tbody className="">
-            {suppliers.map((product) => (
-              <tr key={product.id} className="border-b border-gray-300">
-                <td className="px-2 py-1">{product.id}</td>
-                <td className="px-2 py-1">{product.productName}</td>
-                <td className="px-2 py-1 max-w-32">{product.subCategory}</td>
-                <td className="px-2 py-1">{product.price}</td>
+            {suppliers.map((supplier) => (
+              <tr key={supplier.id} className="border-b border-gray-300">
+                <td className="px-2 py-1">{supplier.id}</td>
+                <td className="px-2 py-1">{supplier.supplierName}</td>
+                <td className="px-2 py-1 max-w-32">{supplier.companyName}</td>
+                <td className="px-2 py-1">{supplier.phone}</td>
+                <td className="px-2 py-1">{supplier.email}</td>
                 <td className="px-2 py-1">
-                  {product.quantity} {product.unit}
+                  {supplier.address}, {supplier.city}, {supplier.state}
                 </td>
-                <td className="px-2 py-1">{product.stock}</td>
               </tr>
             ))}
           </tbody>

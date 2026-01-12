@@ -5,30 +5,21 @@ const router = express.Router();
 
 router.post("/suppliers", (req, res) => {
   const {
-    Supplier_name,
-    company_name,
+    supplierName,
+    companyName,
     email,
     phone,
     address,
     city,
     state,
-    gst_number,
+    gstNumber,
   } = req.body;
   const query = `
-    INSERT INTO suppliers (Supplier_name, company_name, email, phone, address, city, state, gst_number)
+    INSERT INTO suppliers (supplierName, companyName, email, phone, address, city, state, gstNumber)
     VALUES(?, ?, ?, ?, ?, ?, ?, ?)`;
   db.run(
     query,
-    [
-      Supplier_name,
-      company_name,
-      email,
-      phone,
-      address,
-      city,
-      state,
-      gst_number,
-    ],
+    [supplierName, companyName, email, phone, address, city, state, gstNumber],
     function (err) {
       if (err) {
         return res.status(500).json({
@@ -43,6 +34,20 @@ router.post("/suppliers", (req, res) => {
       });
     }
   );
+});
+
+router.get("/suppliers", (req, res) => {
+  const query = `SELECT * FROM suppliers`;
+
+  db.all(query, [], (err, rows) => {
+    if (err) {
+      return res.status(500).json({
+        message: "Damn son you failed a select query",
+        error: err.message,
+      });
+    }
+    return res.json(rows);
+  });
 });
 
 router.delete("/suppliers/:id", (req, res) => {
@@ -66,33 +71,33 @@ router.delete("/suppliers/:id", (req, res) => {
 router.put("/suppliers/:id", (req, res) => {
   const { id } = req.params;
   const {
-    Supplier_name,
-    company_name,
+    supplierName,
+    companyName,
     email,
     phone,
     address,
     city,
     state,
-    gst_number,
+    gstNumber,
   } = req.body;
 
   const query = `
     UPDATE suppliers
-    SET Supplier_name = ?, company_name = ?, email = ?, phone = ?, address = ?, city = ?, state = ?, gst_number = ?
+    SET supplierName = ?, companyName = ?, email = ?, phone = ?, address = ?, city = ?, state = ?, gstNumber = ?
     WHERE id = ?
   `;
 
   db.run(
     query,
     [
-      Supplier_name,
-      company_name,
+      supplierName,
+      companyName,
       email,
       phone,
       address,
       city,
       state,
-      gst_number,
+      gstNumber,
       id,
     ],
     function (err) {
