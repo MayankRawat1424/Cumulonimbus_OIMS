@@ -5,7 +5,7 @@ const SupplierTable = ({ suppliers, loading, setOpen }) => {
   if (loading) return <p>Loading supplier list...</p>;
 
   return (
-    <div className="w-4xl py-4 px-8 mx-auto mt-16 shadow-lg bg-white">
+    <div className="w-4xl py-4 px-8 mx-auto bg-white">
       <div className="flex justify-between">
         <h1 className="font-bold text-3xl mb-6">Suppliers</h1>
         <button

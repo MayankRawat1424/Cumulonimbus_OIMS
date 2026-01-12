@@ -5,7 +5,7 @@ const ProductTable = ({ products, loading, setOpen }) => {
   if (loading) return <p>Loading products...</p>;
 
   return (
-    <div className="w-4xl py-4 px-8 mx-auto mt-16 shadow-lg bg-white">
+    <div className="bg-white w-5/6 mx-auto mt-8 p-8 border-2 border-gray-300">
       <div className="flex justify-between">
         <h1 className="font-bold text-3xl mb-6">Inventory</h1>
         <button

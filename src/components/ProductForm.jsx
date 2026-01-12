@@ -72,7 +72,7 @@ const ProductForm = ({ onProductCreated, setOpen }) => {
   };
 
   return (
-    <div className="w-2/5 py-4 px-8 mx-auto shadow-lg bg-white fixed inset-8 overflow-y-scroll">
+    <div className="w-2/5 py-6 px-8 mx-auto shadow-lg/20 bg-white fixed inset-8 overflow-y-scroll border-2 border-gray-500">
       <div className="flex justify-between">
         <h1 className="font-bold text-3xl mb-6 ">Create Product</h1>
         <button
