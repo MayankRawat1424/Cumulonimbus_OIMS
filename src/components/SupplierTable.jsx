@@ -1,25 +1,25 @@
 import React from "react";
 // import { useEffect, useState } from "react";
 
-const ProductTable = ({ products, loading, setOpen }) => {
-  if (loading) return <p>Loading products...</p>;
+const SupplierTable = ({ suppliers, loading, setOpen }) => {
+  if (loading) return <p>Loading supplier list...</p>;
 
   return (
     <div className="w-4xl py-4 px-8 mx-auto mt-16 shadow-lg bg-white">
       <div className="flex justify-between">
-        <h1 className="font-bold text-3xl mb-6">Inventory</h1>
+        <h1 className="font-bold text-3xl mb-6">Suppliers</h1>
         <button
           className="mb-6 px-2 border-2 border-gray-600 hover:cursor-pointer hover:bg-gray-600 hover:text-white active:bg-gray-800"
           onClick={() => {
             setOpen(true);
           }}
         >
-          Add Product
+          Add Supplier
         </button>
       </div>
 
-      {products.length === 0 ? (
-        <p className="text-gray-600 mb-4">No product found</p>
+      {suppliers.length === 0 ? (
+        <p className="text-gray-600 mb-4">No suppliers found</p>
       ) : (
         <table className="w-full border border-gray-300">
           <thead>
@@ -33,7 +33,7 @@ const ProductTable = ({ products, loading, setOpen }) => {
             </tr>
           </thead>
           <tbody className="">
-            {products.map((product) => (
+            {suppliers.map((product) => (
               <tr key={product.id} className="border-b border-gray-300">
                 <td className="px-2 py-1">{product.id}</td>
                 <td className="px-2 py-1">{product.productName}</td>
@@ -52,4 +52,4 @@ const ProductTable = ({ products, loading, setOpen }) => {
   );
 };
 
-export default ProductTable;
+export default SupplierTable;
