@@ -161,7 +161,7 @@ const SupplierForm = ({ onSupplierCreated, setOpen }) => {
           GST_Number
         </label>
         <input
-          type="number"
+          type="text"
           className="border border-black mb-4 p-1"
           value={form.gstNumber}
           onChange={(e) => {
