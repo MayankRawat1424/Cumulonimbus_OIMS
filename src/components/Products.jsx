@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import ProductForm from "./ProductForm";
 import ProductTable from "./ProductTable";
+import ProductNav from "./ProductNav";
 
 const Products = () => {
   const [open, setOpen] = useState(false);
@@ -30,7 +31,18 @@ const Products = () => {
       {open && (
         <ProductForm onProductCreated={fetchProduct} setOpen={setOpen} />
       )}
-      <ProductTable products={products} loading={loading} setOpen={setOpen} />
+      <div className="grid grid-cols-5 h-screen mx-8">
+        <div className="col-span-1">
+          <ProductNav />
+        </div>
+        <div className="col-span-4">
+          <ProductTable
+            products={products}
+            loading={loading}
+            setOpen={setOpen}
+          />
+        </div>
+      </div>
     </>
   );
 };

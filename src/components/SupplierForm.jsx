@@ -30,12 +30,12 @@ const SupplierForm = ({ onSupplierCreated, setOpen }) => {
     }
 
     if (form.phone === "") {
-      alert("Price must be greater than 0");
+      alert("Phone Number is required");
       return false;
     }
 
     if (form.gstNumber === "") {
-      alert("email must be greater than 0");
+      alert("GST number is required");
       return false;
     }
     return true;
@@ -65,7 +65,7 @@ const SupplierForm = ({ onSupplierCreated, setOpen }) => {
   };
 
   return (
-    <div className="w-2/5 py-4 px-8 mx-auto shadow-lg bg-white fixed inset-8 overflow-y-scroll">
+    <div className="w-2/5 py-6 px-8 mx-auto shadow-lg/20 bg-white fixed inset-8 overflow-y-scroll border-2 border-gray-400">
       <div className="flex justify-between">
         <h1 className="font-bold text-3xl mb-6 ">Create Supplier</h1>
         <button
@@ -95,12 +95,10 @@ const SupplierForm = ({ onSupplierCreated, setOpen }) => {
         <label htmlFor="" className="pb-1 font-semibold">
           Supplier Address
         </label>
-        <textarea
-          className="border border-black mb-6 px-1 h-32"
+        <input
+          className="border border-black mb-6 p-1"
           value={form.address}
-          onChange={(e) =>
-            setForm({ ...form, address: e.target.value })
-          }
+          onChange={(e) => setForm({ ...form, address: e.target.value })}
           placeholder="Enter suppliers address"
         />
 
@@ -112,6 +110,7 @@ const SupplierForm = ({ onSupplierCreated, setOpen }) => {
           className="border border-black mb-6 p-1"
           value={form.companyName}
           onChange={(e) => setForm({ ...form, companyName: e.target.value })}
+          placeholder="Enter Company Name"
         />
 
         <label htmlFor="" className="pb-1 font-semibold">
@@ -124,7 +123,7 @@ const SupplierForm = ({ onSupplierCreated, setOpen }) => {
           onChange={(e) => {
             setForm({ ...form, email: e.target.value });
           }}
-          min={0}
+          placeholder="example123@abc.com"
         />
 
         <label htmlFor="" className="pb-1 font-semibold">
@@ -135,6 +134,7 @@ const SupplierForm = ({ onSupplierCreated, setOpen }) => {
           className="border border-black mb-6 p-1"
           value={form.phone}
           onChange={(e) => setForm({ ...form, phone: e.target.value })}
+          placeholder="Enter Phone number"
         />
 
         <label htmlFor="" className="pb-1 font-semibold">
@@ -167,7 +167,7 @@ const SupplierForm = ({ onSupplierCreated, setOpen }) => {
           onChange={(e) => {
             setForm({ ...form, gstNumber: e.target.value });
           }}
-          min={0}
+          placeholder="GSTIN-XXXX"
         />
 
         <button

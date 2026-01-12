@@ -1,16 +1,5 @@
-Stack
---------------------------------------------------
-Front-End: React
-Back-End: Express
-Styling: Tailwind
-Database: MySQL
-Hosting: Google Firebase
-
-
 Mandatory:
 --------------------------------------------------
-Add/edit/delete products
-Real-time stock levels
 Minimum stock (reorder level) alerts
 Overstock & out-of-stock indicators
 Purchase orders (PO)
@@ -20,7 +9,6 @@ Extra Features:
 --------------------------------------------------
 Product images & descriptions
 Purchase return handling
-Supplier profiles & contact info
 Sales orders & invoices
 Customer-wise sales history
 Stock valuation report
@@ -33,7 +21,9 @@ Reorder quantity suggestions
 Completed
 --------------------------------------------------
 Mandatory:
+Add/edit/delete products
 Product categories & variants (size, color, model)
+Real-time stock levels
 
 Extra Features:
-
+Supplier profiles & contact info
