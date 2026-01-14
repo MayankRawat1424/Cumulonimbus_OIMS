@@ -1,7 +1,13 @@
 import React from "react";
 // import { useEffect, useState } from "react";
 
-const ProductTable = ({ products, loading, setOpen }) => {
+const ProductTable = ({
+  setLoadProductDetail,
+  products,
+  loading,
+  setOpen,
+  setProductId,
+}) => {
   if (loading) return <p>Loading products...</p>;
 
   return (
@@ -34,7 +40,14 @@ const ProductTable = ({ products, loading, setOpen }) => {
           </thead>
           <tbody className="">
             {products.map((product) => (
-              <tr key={product.id} className="border-b border-gray-300">
+              <tr
+                key={product.id}
+                className="border-b border-gray-300 hover:cursor-pointer hover:inset-shadow-sm hover:bg-gray-50"
+                onClick={() => {
+                  setLoadProductDetail(true);
+                  setProductId(product.id);
+                }}
+              >
                 <td className="px-2 py-1">{product.id}</td>
                 <td className="px-2 py-1">{product.productName}</td>
                 <td className="px-2 py-1 max-w-32">{product.subCategory}</td>

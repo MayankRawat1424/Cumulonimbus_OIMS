@@ -1,13 +1,15 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import ProductForm from "./ProductForm";
 import ProductTable from "./ProductTable";
 import ProductNav from "./ProductNav";
+import ProductDetail from "./ProductDetail";
 
 const Products = () => {
   const [open, setOpen] = useState(false);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadProductDetail, setLoadProductDetail] = useState(false);
+  const [productId, setProductId] = useState("");
 
   const fetchProduct = async () => {
     try {
@@ -35,13 +37,24 @@ const Products = () => {
         <div className="col-span-1">
           <ProductNav />
         </div>
-        <div className="col-span-4">
-          <ProductTable
-            products={products}
-            loading={loading}
-            setOpen={setOpen}
-          />
-        </div>
+        {loadProductDetail ? (
+          <div className="col-span-4">
+            <ProductDetail
+              setLoadProductDetail={setLoadProductDetail}
+              productId={productId}
+            />
+          </div>
+        ) : (
+          <div className="col-span-4">
+            <ProductTable
+              products={products}
+              loading={loading}
+              setOpen={setOpen}
+              setLoadProductDetail={setLoadProductDetail}
+              setProductId={setProductId}
+            />
+          </div>
+        )}
       </div>
     </>
   );

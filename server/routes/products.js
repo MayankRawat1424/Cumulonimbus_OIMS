@@ -74,6 +74,21 @@ router.delete("/products/:id", (req, res) => {
   });
 });
 
+// For find product detail
+router.get("/products/:id", (req, res) => {
+  const query = `SELECT * FROM products WHERE id = ?`;
+  const { id } = req.params;
+  db.get(query, [id], (err, rows) => {
+    if (err) {
+      return res.status(500).json({
+        message: "Damn son you failed a select query",
+        error: err.message,
+      });
+    }
+    return res.json(rows);
+  });
+});
+
 router.get("/products", (req, res) => {
   const query = `SELECT id, productName,
       subCategory,
