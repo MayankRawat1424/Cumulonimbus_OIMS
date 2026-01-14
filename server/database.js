@@ -37,4 +37,16 @@ db.run(`
   )
 `);
 
+db.run(`
+      CREATE TABLE IF NOT EXISTS customers (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        customerName TEXT NOT NULL,
+        phone TEXT,
+        email TEXT,
+        address TEXT,
+        age INTEGER,
+        gender TEXT
+      )
+  `);
+
 export default db;
