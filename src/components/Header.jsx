@@ -32,7 +32,7 @@ const Header = ({ setWindow }) => {
               <button
                 className="hover:underline hover:cursor-pointer"
                 onClick={() => {
-                  setWindow(0);
+                  setWindow(2);
                 }}
               >
                 Customer
