@@ -3,6 +3,7 @@ import ProductForm from "./ProductForm";
 import ProductTable from "./ProductTable";
 import ProductNav from "./ProductNav";
 import ProductDetail from "./ProductDetail";
+import InventoryValuation from "./InventoryValuation";
 
 const Products = () => {
   const [open, setOpen] = useState(false);
@@ -53,6 +54,7 @@ const Products = () => {
               setLoadProductDetail={setLoadProductDetail}
               setProductId={setProductId}
             />
+            <InventoryValuation />
           </div>
         )}
       </div>
