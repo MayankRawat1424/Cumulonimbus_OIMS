@@ -1,5 +1,6 @@
 Mandatory:
 --------------------------------------------------
+Change MRP
 Minimum stock (reorder level) alerts
 Overstock & out-of-stock indicators
 Purchase orders (PO)
