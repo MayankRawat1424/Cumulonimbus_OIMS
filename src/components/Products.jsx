@@ -4,6 +4,7 @@ import ProductTable from "./ProductTable";
 import ProductNav from "./ProductNav";
 import ProductDetail from "./ProductDetail";
 import InventoryValuation from "./InventoryValuation";
+import OutOfStock from "./OutOfStock";
 
 const Products = () => {
   const [open, setOpen] = useState(false);
@@ -54,7 +55,14 @@ const Products = () => {
               setLoadProductDetail={setLoadProductDetail}
               setProductId={setProductId}
             />
-            <InventoryValuation />
+            {/* <InventoryValuation /> */}
+            <OutOfStock
+              products={products}
+              loading={loading}
+              setOpen={setOpen}
+              setLoadProductDetail={setLoadProductDetail}
+              setProductId={setProductId}
+            />
           </div>
         )}
       </div>
