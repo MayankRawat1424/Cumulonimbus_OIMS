@@ -54,7 +54,7 @@ const Products = () => {
               setLoadProductDetail={setLoadProductDetail}
               setProductId={setProductId}
             />
-            <InventoryValuation />
+            {/* <InventoryValuation /> */}
           </div>
         )}
       </div>

@@ -24,9 +24,9 @@ const ProductDetail = ({ setLoadProductDetail, productId }) => {
   }, [productId]);
 
   return (
-    <div>
+    <div className="bg-white w-5/6 mx-auto mt-8 p-8 border-2 border-gray-300">
       {loading ? (
-        <div>
+        <div className="flex justify-between">
           <p>loading</p>
           <button
             className="mb-6 px-2 border-2 border-gray-600 hover:cursor-pointer hover:bg-gray-600 hover:text-white active:bg-gray-800"
@@ -39,8 +39,10 @@ const ProductDetail = ({ setLoadProductDetail, productId }) => {
         </div>
       ) : (
         <>
-          <div>
-            <h1>{product.productName}</h1>
+          <div className="flex justify-between">
+            <h1 className="font-bold text-3xl mb-6">
+              {product.productName} Details
+            </h1>
             <button
               className="mb-6 px-2 border-2 border-gray-600 hover:cursor-pointer hover:bg-gray-600 hover:text-white active:bg-gray-800"
               onClick={() => {
@@ -52,6 +54,7 @@ const ProductDetail = ({ setLoadProductDetail, productId }) => {
           </div>
           <div>
             <img src={tempImg} alt="Item Picture" />
+            <form action="" className="flex flex-col"></form>
             <p>
               <strong>Description : </strong>
               {product.productDescription}
