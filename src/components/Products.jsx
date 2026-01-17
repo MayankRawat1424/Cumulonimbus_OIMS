@@ -12,6 +12,7 @@ const Products = () => {
   const [loading, setLoading] = useState(true);
   const [loadProductDetail, setLoadProductDetail] = useState(false);
   const [productId, setProductId] = useState("");
+  const [nav, setNav] = useState("Inventory");
 
   const fetchProduct = async () => {
     try {
@@ -37,7 +38,7 @@ const Products = () => {
       )}
       <div className="grid grid-cols-5 h-screen mx-8">
         <div className="col-span-1">
-          <ProductNav />
+          <ProductNav setNav={setNav} />
         </div>
         {loadProductDetail ? (
           <div className="col-span-4">
@@ -46,7 +47,7 @@ const Products = () => {
               productId={productId}
             />
           </div>
-        ) : (
+        ) : nav === "Inventory" ? (
           <div className="col-span-4">
             <ProductTable
               products={products}
@@ -55,7 +56,13 @@ const Products = () => {
               setLoadProductDetail={setLoadProductDetail}
               setProductId={setProductId}
             />
-            {/* <InventoryValuation /> */}
+          </div>
+        ) : nav === "Stock Valuation" ? (
+          <div className="col-span-4">
+            <InventoryValuation />
+          </div>
+        ) : nav === "Out of Stock Items" ? (
+          <div className="col-span-4">
             <OutOfStock
               products={products}
               loading={loading}
@@ -64,6 +71,8 @@ const Products = () => {
               setProductId={setProductId}
             />
           </div>
+        ) : (
+          setNav("Inventory")
         )}
       </div>
     </>
