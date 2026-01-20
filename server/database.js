@@ -49,4 +49,36 @@ db.run(`
       )
   `);
 
+db.run(`
+  CREATE TABLE IF NOT EXISTS orders (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    customerId INTEGER NOT NULL,
+    deliveryCharge TEXT CHECK (deliveryCharge IN ('Y', 'N')),
+    totalAmount REAL NOT NULL,
+    orderDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (customerId)
+      REFERENCES customers(id)
+      ON DELETE CASCADE
+  )
+`);
+
+db.run(`
+  CREATE TABLE IF NOT EXISTS orderItems (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    orderId INTEGER NOT NULL,
+    productId INTEGER NOT NULL,
+    quantity INTEGER NOT NULL,
+    pricePerItem REAL NOT NULL,
+
+    FOREIGN KEY (orderId)
+      REFERENCES orders(id)
+      ON DELETE CASCADE,
+
+    FOREIGN KEY (productId)
+      REFERENCES products(id)
+      ON DELETE CASCADE
+  )
+`);
+
 export default db;
