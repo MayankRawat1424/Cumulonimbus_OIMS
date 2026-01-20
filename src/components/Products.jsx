@@ -36,7 +36,7 @@ const Products = () => {
       {open && (
         <ProductForm onProductCreated={fetchProduct} setOpen={setOpen} />
       )}
-      <div className="grid grid-cols-5 h-screen mx-8">
+      <div className="grid grid-cols-5 h-screen ml-8 pr-8 bg-neutral-50">
         <div className="col-span-1">
           <ProductNav setNav={setNav} />
         </div>
