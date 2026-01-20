@@ -45,6 +45,7 @@ const Products = () => {
             <ProductDetail
               setLoadProductDetail={setLoadProductDetail}
               productId={productId}
+              fetchProduct={fetchProduct}
             />
           </div>
         ) : nav === "Inventory" ? (
