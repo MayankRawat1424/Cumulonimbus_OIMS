@@ -32,7 +32,7 @@ router.post("/suppliers", (req, res) => {
         message: "Supplier added successfully",
         supplier_id: this.lastID,
       });
-    }
+    },
   );
 });
 
@@ -115,8 +115,31 @@ router.put("/suppliers/:id", (req, res) => {
       return res.status(200).json({
         message: "Supplier updated successfully",
       });
-    }
+    },
   );
+});
+
+router.get("/suppliers/:id", (req, res) => {
+  const { id } = req.params;
+
+  const query = `SELECT * FROM suppliers WHERE id = ?`;
+
+  db.get(query, [id], (err, row) => {
+    if (err) {
+      return res.status(500).json({
+        message: "Error fetching supplier",
+        error: err.message,
+      });
+    }
+
+    if (!row) {
+      return res.status(404).json({
+        message: "Supplier not found",
+      });
+    }
+
+    return res.json(row);
+  });
 });
 
 export default router;
