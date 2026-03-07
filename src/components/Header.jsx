@@ -35,7 +35,7 @@ const Header = ({ setWindow }) => {
                   setWindow(2);
                 }}
               >
-                Supplier
+                Customer
               </button>
               <button
                 className="hover:underline hover:cursor-pointer"
@@ -43,7 +43,7 @@ const Header = ({ setWindow }) => {
                   setWindow(3);
                 }}
               >
-                Customer
+                Supplier
               </button>
             </div>
           </div>
