@@ -1,23 +1,22 @@
 Mandatory:
 --------------------------------------------------
 Change MRP
-Minimum stock (reorder level) alerts
-Overstock & out-of-stock indicators
 Purchase orders (PO)
 
 
 Extra Features: 
 --------------------------------------------------
-Product images & descriptions
 Purchase return handling
 Sales orders & invoices
 Customer-wise sales history
-Stock valuation report
 Profit & margin analysis
 Purchase vs sales trends
 Demand forecasting
 Seasonal trend analysis
 Reorder quantity suggestions
+
+HomePage:
+Calander with date wise sales chart
 
 Completed
 --------------------------------------------------
@@ -25,6 +24,10 @@ Mandatory:
 Add/edit/delete products
 Product categories & variants (size, color, model)
 Real-time stock levels
+Minimum stock (reorder level) alerts
+Overstock & out-of-stock indicators
 
 Extra Features:
 Supplier profiles & contact info
+Product images & descriptions
+Stock valuation report

@@ -4,14 +4,7 @@ import db from "../database.js";
 const router = express.Router();
 
 router.post("/customers", (req, res) => {
-  const {
-    customerName,
-    phone,
-    email,
-    address,
-    age,
-    gender,
-  } = req.body;
+  const { customerName, phone, email, address, age, gender } = req.body;
   const query = `
     INSERT INTO customers (customerName,
     phone,
@@ -23,14 +16,7 @@ router.post("/customers", (req, res) => {
   `;
   db.run(
     query,
-    [
-      customerName,
-      phone,
-      email,
-      address,
-      age,
-      gender,
-    ],
+    [customerName, phone, email, address, age, gender],
     function (err) {
       if (err) {
         return res
@@ -42,7 +28,7 @@ router.post("/customers", (req, res) => {
         message: "Customer created",
         customerId: this.lastID,
       });
-    }
+    },
   );
 });
 
@@ -86,14 +72,7 @@ router.get("/customers", (req, res) => {
 
 router.put("/customers/:id", (req, res) => {
   const { id } = req.params;
-  const {
-    customerName,
-    phone,
-    email,
-    address,
-    age,
-    gender,
-  } = req.body;
+  const { customerName, phone, email, address, age, gender } = req.body;
 
   const query = `
     UPDATE customers
@@ -108,15 +87,7 @@ router.put("/customers/:id", (req, res) => {
 
   db.run(
     query,
-    [
-      customerName,
-      phone,
-      email,
-      address,
-      age,
-      gender,
-      id,
-    ],
+    [customerName, phone, email, address, age, gender, id],
     function (err) {
       if (err) {
         return res.status(500).json({
@@ -132,7 +103,7 @@ router.put("/customers/:id", (req, res) => {
       return res.status(200).json({
         message: "Updated successfully biatchhh",
       });
-    }
+    },
   );
 });
 
