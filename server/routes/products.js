@@ -4,7 +4,7 @@ import db from "../database.js";
 const router = express.Router();
 
 router.get("/products/test", (req, res) => {
-  console.log("CATEGORY SUMMARY ROUTE HIT");
+  // console.log("CATEGORY SUMMARY ROUTE HIT");
 
   const query = `
     SELECT 
@@ -15,7 +15,7 @@ router.get("/products/test", (req, res) => {
   `;
 
   db.all(query, [], (err, rows) => {
-    console.log("DB CALLBACK TRIGGERED");
+    // console.log("DB CALLBACK TRIGGERED");
 
     if (err) {
       console.error(err);
@@ -25,7 +25,7 @@ router.get("/products/test", (req, res) => {
       });
     }
 
-    console.log(rows);
+    // console.log(rows);
 
     res.json(rows);
   });

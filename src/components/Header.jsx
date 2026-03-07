@@ -19,7 +19,7 @@ const Header = ({ setWindow }) => {
                   setWindow(0);
                 }}
               >
-                Logistics
+                Home
               </button>
               <button
                 className="hover:underline hover:cursor-pointer"
@@ -27,12 +27,20 @@ const Header = ({ setWindow }) => {
                   setWindow(1);
                 }}
               >
-                Supplier
+                Logistics
               </button>
               <button
                 className="hover:underline hover:cursor-pointer"
                 onClick={() => {
                   setWindow(2);
+                }}
+              >
+                Supplier
+              </button>
+              <button
+                className="hover:underline hover:cursor-pointer"
+                onClick={() => {
+                  setWindow(3);
                 }}
               >
                 Customer
