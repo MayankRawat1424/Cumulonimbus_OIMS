@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import PieChart from "./charts/PieChart";
+import PieChart from "../../charts/PieChart";
 
 const InventoryValuation = () => {
   const [totalVal, setTotalVal] = useState(0);

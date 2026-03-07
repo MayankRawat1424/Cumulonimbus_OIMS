@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import ProductForm from "./ProductForm";
 import ProductTable from "./ProductTable";
 import ProductNav from "./ProductNav";
 import ProductDetail from "./ProductDetail";
-import InventoryValuation from "./InventoryValuation";
-import OutOfStock from "./OutOfStock";
+import InventoryValuation from "./Nav/InventoryValuation";
+import OutOfStock from "./Nav/OutOfStock";
 
 const Products = () => {
   const [open, setOpen] = useState(false);
@@ -17,7 +17,7 @@ const Products = () => {
   const [totalPages, setTotalPages] = useState(1);
   const limit = 10;
 
-  const fetchProduct = async () => {
+  const fetchProduct = useCallback(async () => {
     try {
       setLoading(true);
       const res = await fetch(
@@ -31,11 +31,11 @@ const Products = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [page]);
 
   useEffect(() => {
     fetchProduct();
-  }, [page]);
+  }, [fetchProduct]);
 
   return (
     <>

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import Header from "./components/Header";
-import Products from "./components/Products";
-import Suppliers from "./components/Suppliers";
-import Customers from "./components/Customers";
+import Products from "./components/Logistic/Products";
+import Suppliers from "./components/Supplier/Suppliers";
+import Customers from "./components/Customer/Customers";
 
 function App() {
   const [window, setWindow] = useState(0);
