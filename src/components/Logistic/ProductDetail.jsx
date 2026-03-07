@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import tempImg from "../assets/temp.png";
+import tempImg from "../../assets/temp.png";
 
 const ProductDetail = ({ setLoadProductDetail, productId, fetchProduct }) => {
   const [loading, setLoading] = useState(true);

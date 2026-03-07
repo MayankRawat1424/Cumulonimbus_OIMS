@@ -19,7 +19,7 @@ const Header = ({ setWindow }) => {
                   setWindow(0);
                 }}
               >
-                Product
+                Logistics
               </button>
               <button
                 className="hover:underline hover:cursor-pointer"

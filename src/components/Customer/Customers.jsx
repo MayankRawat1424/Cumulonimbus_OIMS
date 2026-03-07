@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import CustomerForm from "./CustomerForm";
 import CustomerTable from "./CustomerTable";
-import CustomerNav from "./ProductNav";
+import CustomerNav from "./CustomerNav";
 
 const Customer = () => {
   const [open, setOpen] = useState(false);
