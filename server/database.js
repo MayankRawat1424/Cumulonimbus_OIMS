@@ -81,4 +81,35 @@ db.run(`
   )
 `);
 
+db.run(`
+  CREATE TABLE IF NOT EXISTS supplier_orders (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    supplierId INTEGER NOT NULL,
+    totalAmount REAL NOT NULL,
+    orderDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (supplierId)
+      REFERENCES suppliers(id)
+      ON DELETE CASCADE
+  )
+`);
+
+db.run(`
+  CREATE TABLE IF NOT EXISTS supplier_orderItems (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    orderId INTEGER NOT NULL,
+    productId INTEGER NOT NULL,
+    quantity INTEGER NOT NULL,
+    pricePerItem REAL NOT NULL,
+
+    FOREIGN KEY (orderId)
+      REFERENCES supplier_orders(id)
+      ON DELETE CASCADE,
+
+    FOREIGN KEY (productId)
+      REFERENCES products(id)
+      ON DELETE CASCADE
+  )
+`);
+
 export default db;

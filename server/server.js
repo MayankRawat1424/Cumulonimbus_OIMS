@@ -4,6 +4,7 @@ import productRoutes from "./routes/products.js";
 import supplierRoutes from "./routes/suppliers.js";
 import customerRoutes from "./routes/customers.js";
 import customerOrders from "./routes/customerOrders.js";
+import supplierOrders from "./routes/supplierOrders.js";
 
 const app = express();
 const PORT = 5000;
@@ -14,6 +15,7 @@ app.use("/api", productRoutes);
 app.use("/api", supplierRoutes);
 app.use("/api", customerRoutes);
 app.use("/api", customerOrders);
+app.use("/api", supplierOrders);
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
