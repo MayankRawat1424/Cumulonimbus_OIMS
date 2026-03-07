@@ -3,6 +3,34 @@ import db from "../database.js";
 
 const router = express.Router();
 
+router.get("/products/test", (req, res) => {
+  console.log("CATEGORY SUMMARY ROUTE HIT");
+
+  const query = `
+    SELECT 
+      COALESCE(NULLIF(subCategory, ''), 'Uncategorized') as category,
+      SUM(price * stock) as totalValue
+    FROM products
+    GROUP BY subCategory
+  `;
+
+  db.all(query, [], (err, rows) => {
+    console.log("DB CALLBACK TRIGGERED");
+
+    if (err) {
+      console.error(err);
+      return res.status(500).json({
+        message: "Category summary failed",
+        error: err.message,
+      });
+    }
+
+    console.log(rows);
+
+    res.json(rows);
+  });
+});
+
 router.post("/products", (req, res) => {
   const {
     productName,
@@ -178,31 +206,10 @@ router.put("/products/:id", (req, res) => {
         });
       }
       return res.status(200).json({
-        message: "Updated successfully biatchhh",
+        message: "Updated successfully",
       });
     },
   );
-});
-
-router.get("/products/category-summary", (req, res) => {
-  const query = `
-    SELECT 
-      COALESCE(NULLIF(subCategory, ''), 'Uncategorized') as category,
-      SUM(price * stock) as totalValue
-    FROM products
-    GROUP BY subCategory
-  `;
-
-  db.all(query, [], (err, rows) => {
-    if (err) {
-      return res.status(500).json({
-        message: "Category summary failed",
-        error: err.message,
-      });
-    }
-
-    return res.json(rows);
-  });
 });
 
 export default router;

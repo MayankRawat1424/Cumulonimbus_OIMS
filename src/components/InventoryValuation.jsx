@@ -9,9 +9,7 @@ const InventoryValuation = () => {
   useEffect(() => {
     const fetchSummary = async () => {
       try {
-        const res = await fetch(
-          "http://localhost:5000/api/products/category-summary",
-        );
+        const res = await fetch("http://localhost:5000/api/products/test");
 
         if (!res.ok) throw new Error("Fetch failed");
 

@@ -5,11 +5,11 @@ const OutOfStock = ({
   setLoadProductDetail,
   products,
   loading,
-  setOpen,
+  // setOpen,
   setProductId,
 }) => {
   if (loading) return <p>Loading products...</p>;
-    const outOfStockProducts = products.filter(p => p.stock === 0);
+  const outOfStockProducts = products.filter((p) => p.stock === 0);
 
   return (
     <div className="bg-white w-5/6 mx-auto mt-8 p-8 border-2 border-gray-300">
