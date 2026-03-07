@@ -13,13 +13,19 @@ const Products = () => {
   const [loadProductDetail, setLoadProductDetail] = useState(false);
   const [productId, setProductId] = useState("");
   const [nav, setNav] = useState("Inventory");
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const limit = 10;
 
   const fetchProduct = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/api/products");
+      const res = await fetch(
+        `http://localhost:5000/api/products?page=${page}&limit=${limit}`,
+      );
       const data = await res.json();
-      setProducts(data);
+      setProducts(data.data);
+      setTotalPages(data.totalPages);
     } catch (err) {
       console.error(err);
     } finally {
@@ -29,7 +35,7 @@ const Products = () => {
 
   useEffect(() => {
     fetchProduct();
-  }, []);
+  }, [page]);
 
   return (
     <>
@@ -56,6 +62,9 @@ const Products = () => {
               setOpen={setOpen}
               setLoadProductDetail={setLoadProductDetail}
               setProductId={setProductId}
+              setPage={setPage}
+              page={page}
+              totalPages={totalPages}
             />
           </div>
         ) : nav === "Stock Valuation" ? (

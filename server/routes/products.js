@@ -51,7 +51,7 @@ router.post("/products", (req, res) => {
         message: "Product created",
         productId: this.lastID,
       });
-    }
+    },
   );
 });
 
@@ -90,21 +90,36 @@ router.get("/products/:id", (req, res) => {
 });
 
 router.get("/products", (req, res) => {
-  const query = `SELECT id, productName,
+  const dataQuery = `SELECT id, productName,
       subCategory,
       price,
       quantity,
       unit,
-      stock FROM products`;
+      stock FROM products LIMIT ? OFFSET ?`;
 
-  db.all(query, [], (err, rows) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 5;
+  const offset = (page - 1) * limit;
+
+  const countQuery = `SELECT COUNT(*) as total FROM products`;
+
+  db.get(countQuery, [], (err, countRow) => {
     if (err) {
-      return res.status(500).json({
-        message: "Damn son you failed a select query",
-        error: err.message,
-      });
+      return res.status(500).json({ error: err.message });
     }
-    return res.json(rows);
+
+    db.all(dataQuery, [limit, offset], (err, rows) => {
+      if (err) {
+        return res.status(500).json({ error: err.message });
+      }
+
+      return res.json({
+        data: rows,
+        total: countRow.total,
+        page,
+        totalPages: Math.ceil(countRow.total / limit),
+      });
+    });
   });
 });
 
@@ -165,8 +180,29 @@ router.put("/products/:id", (req, res) => {
       return res.status(200).json({
         message: "Updated successfully biatchhh",
       });
-    }
+    },
   );
+});
+
+router.get("/products/category-summary", (req, res) => {
+  const query = `
+    SELECT 
+      COALESCE(NULLIF(subCategory, ''), 'Uncategorized') as category,
+      SUM(price * stock) as totalValue
+    FROM products
+    GROUP BY subCategory
+  `;
+
+  db.all(query, [], (err, rows) => {
+    if (err) {
+      return res.status(500).json({
+        message: "Category summary failed",
+        error: err.message,
+      });
+    }
+
+    return res.json(rows);
+  });
 });
 
 export default router;
