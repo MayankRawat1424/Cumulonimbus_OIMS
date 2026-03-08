@@ -39,6 +39,7 @@ router.post("/products", (req, res) => {
     subCategory,
     model,
     price,
+    costPrice,
     quantity,
     unit,
     stock,
@@ -50,10 +51,11 @@ router.post("/products", (req, res) => {
     subCategory,
     model,
     price,
+    costPrice,
     quantity,
     unit,
     stock)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `;
   db.run(
     query,
@@ -64,6 +66,7 @@ router.post("/products", (req, res) => {
       subCategory,
       model,
       price,
+      costPrice,
       quantity,
       unit,
       stock,
@@ -121,6 +124,7 @@ router.get("/products", (req, res) => {
   const dataQuery = `SELECT id, productName,
       subCategory,
       price,
+      costPrice,
       quantity,
       unit,
       stock FROM products LIMIT ? OFFSET ?`;
@@ -160,6 +164,7 @@ router.put("/products/:id", (req, res) => {
     subCategory,
     model,
     price,
+    costPrice,
     quantity,
     unit,
     stock,
@@ -173,6 +178,7 @@ router.put("/products/:id", (req, res) => {
     subCategory = ?,
     model = ?,
     price = ?,
+    costPrice = ?,
     quantity = ?,
     unit = ?,
     stock = ?
@@ -188,6 +194,7 @@ router.put("/products/:id", (req, res) => {
       subCategory,
       model,
       price,
+      costPrice,
       quantity,
       unit,
       stock,

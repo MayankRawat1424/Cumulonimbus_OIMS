@@ -29,12 +29,12 @@ router.post("/supplierOrders", (req, res) => {
 
     items.forEach((item) => {
       db.get(
-        `SELECT price FROM products WHERE id = ?`,
+        `SELECT costPrice FROM products WHERE id = ?`,
         [item.productId],
         (err, product) => {
           if (err || !product) return;
 
-          const itemTotal = product.price * item.quantity;
+          const itemTotal = product.costPrice * item.quantity;
           totalAmount += itemTotal;
 
           db.run(
@@ -42,7 +42,7 @@ router.post("/supplierOrders", (req, res) => {
             INSERT INTO supplier_orderItems (orderId, productId, quantity, pricePerItem)
             VALUES (?, ?, ?, ?)
           `,
-            [orderId, item.productId, item.quantity, product.price]
+            [orderId, item.productId, item.quantity, product.costPrice]
           );
 
           db.run(

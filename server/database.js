@@ -17,6 +17,7 @@ db.run(`
     subCategory TEXT,
     model TEXT,
     price INTEGER,
+    costPrice INTEGER,
     quantity INTEGER,
     unit TEXT,
     stock INTEGER
