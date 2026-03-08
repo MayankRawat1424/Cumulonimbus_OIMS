@@ -168,7 +168,7 @@ const ProductDetail = ({ setLoadProductDetail, productId, fetchProduct }) => {
               </div>
               <div className="mb-1 flex flex-col">
                 <label htmlFor="" className="font-semibold mb-1">
-                  Price
+                  Marked Price
                 </label>
                 <input
                   type="number"
