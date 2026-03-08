@@ -102,6 +102,26 @@ router.delete("/products/:id", (req, res) => {
   });
 });
 
+router.get("/products/all", (req, res) => {
+  const query = `
+    SELECT id,
+           productName,
+           price,
+           stock
+    FROM products
+  `;
+
+  db.all(query, [], (err, rows) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+
+    res.json({
+      data: rows,
+      total: rows.length,
+    });
+  });
+});
 // For find product detail
 router.get("/products/:id", (req, res) => {
   const query = `SELECT * FROM products WHERE id = ?`;
