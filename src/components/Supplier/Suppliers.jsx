@@ -3,6 +3,7 @@ import SupplierForm from "./SupplierForm";
 import SupplierTable from "./SupplierTable";
 import SupplierNav from "./SupplierNav";
 import SupplierDetail from "./SupplierDetail";
+import CreateOrder from "./Nav/CreateOrder";
 
 const Suppliers = () => {
   const [open, setOpen] = useState(false);
@@ -58,7 +59,9 @@ const Suppliers = () => {
             />
           </div>
         ) : nav === "Create Order" ? (
-          <div className="col-span-4"></div>
+          <div className="col-span-4">
+            <CreateOrder />
+          </div>
         ) : nav === "Order History" ? (
           <div className="col-span-4"></div>
         ) : (

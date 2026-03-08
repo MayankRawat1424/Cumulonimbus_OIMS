@@ -113,4 +113,17 @@ db.run(`
   )
 `);
 
+db.run(`
+  CREATE TABLE IF NOT EXISTS supplier_order_status (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    orderId INTEGER NOT NULL,
+    status INTEGER NOT NULL CHECK(status IN (0,1,2,3)),
+    estimatedDeliveryDate DATETIME,
+
+    FOREIGN KEY (orderId)
+      REFERENCES supplier_orders(id)
+      ON DELETE CASCADE
+  )
+`);
+
 export default db;
