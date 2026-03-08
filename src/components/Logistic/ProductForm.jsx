@@ -9,6 +9,7 @@ const ProductForm = ({ onProductCreated, setOpen }) => {
     subCategory: "",
     model: "",
     price: 0,
+    costPrice: 0, 
     quantity: 0,
     unit: "",
     stock: "0",
@@ -38,6 +39,11 @@ const ProductForm = ({ onProductCreated, setOpen }) => {
 
     if (form.price <= 0) {
       alert("Price must be greater than 0");
+      return false;
+    }
+
+    if (form.costPrice <= 0) {
+      alert("Cost price must be greater than 0");
       return false;
     }
 
@@ -164,6 +170,19 @@ const ProductForm = ({ onProductCreated, setOpen }) => {
           value={form.price}
           onChange={(e) => {
             setForm({ ...form, price: e.target.value });
+          }}
+          min={0}
+        />
+
+        <label htmlFor="" className="pb-1 font-semibold">
+          Cost Price
+        </label>
+        <input
+          type="number"
+          className="border border-black mb-6 p-1"
+          value={form.costPrice}
+          onChange={(e) => {
+            setForm({ ...form, costPrice: e.target.value });
           }}
           min={0}
         />

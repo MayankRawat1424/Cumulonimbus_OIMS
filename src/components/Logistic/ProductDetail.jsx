@@ -184,6 +184,21 @@ const ProductDetail = ({ setLoadProductDetail, productId, fetchProduct }) => {
                 />
               </div>
               <div className="mb-1 flex flex-col">
+                <label className="font-semibold mb-1">Cost Price</label>
+                <input
+                  type="number"
+                  value={product.costPrice}
+                  onChange={(e) =>
+                    setProduct({
+                      ...product,
+                      costPrice: e.target.value,
+                    })
+                  }
+                  min={0}
+                  className="border border-black p-1 mr-16 mb-4"
+                />
+              </div>
+              <div className="mb-1 flex flex-col">
                 <label htmlFor="" className="font-semibold mb-1">
                   Quantity
                 </label>
