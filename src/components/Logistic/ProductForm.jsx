@@ -9,7 +9,7 @@ const ProductForm = ({ onProductCreated, setOpen }) => {
     subCategory: "",
     model: "",
     price: 0,
-    costPrice: 0, 
+    costPrice: 0,
     quantity: 0,
     unit: "",
     stock: "0",
@@ -162,7 +162,7 @@ const ProductForm = ({ onProductCreated, setOpen }) => {
         />
 
         <label htmlFor="" className="pb-1 font-semibold">
-          Price
+          Marked Price
         </label>
         <input
           type="number"

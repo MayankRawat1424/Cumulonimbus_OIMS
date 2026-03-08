@@ -93,16 +93,6 @@ const SupplierForm = ({ onSupplierCreated, setOpen }) => {
         />
 
         <label htmlFor="" className="pb-1 font-semibold">
-          Supplier Address
-        </label>
-        <input
-          className="border border-black mb-6 p-1"
-          value={form.address}
-          onChange={(e) => setForm({ ...form, address: e.target.value })}
-          placeholder="Enter suppliers address"
-        />
-
-        <label htmlFor="" className="pb-1 font-semibold">
           Company Name
         </label>
         <input
@@ -111,6 +101,17 @@ const SupplierForm = ({ onSupplierCreated, setOpen }) => {
           value={form.companyName}
           onChange={(e) => setForm({ ...form, companyName: e.target.value })}
           placeholder="Enter Company Name"
+        />
+
+        <label htmlFor="" className="pb-1 font-semibold">
+          Phone_Number
+        </label>
+        <input
+          type="tel"
+          className="border border-black mb-6 p-1"
+          value={form.phone}
+          onChange={(e) => setForm({ ...form, phone: e.target.value })}
+          placeholder="Enter Phone number"
         />
 
         <label htmlFor="" className="pb-1 font-semibold">
@@ -127,14 +128,26 @@ const SupplierForm = ({ onSupplierCreated, setOpen }) => {
         />
 
         <label htmlFor="" className="pb-1 font-semibold">
-          Phone_Number
+          GST_Number
         </label>
         <input
-          type="tel"
+          type="text"
+          className="border border-black mb-4 p-1"
+          value={form.gstNumber}
+          onChange={(e) => {
+            setForm({ ...form, gstNumber: e.target.value });
+          }}
+          placeholder="GSTIN-XXXX"
+        />
+
+        <label htmlFor="" className="pb-1 font-semibold">
+          Supplier Address
+        </label>
+        <input
           className="border border-black mb-6 p-1"
-          value={form.phone}
-          onChange={(e) => setForm({ ...form, phone: e.target.value })}
-          placeholder="Enter Phone number"
+          value={form.address}
+          onChange={(e) => setForm({ ...form, address: e.target.value })}
+          placeholder="Enter suppliers address"
         />
 
         <label htmlFor="" className="pb-1 font-semibold">
@@ -155,19 +168,6 @@ const SupplierForm = ({ onSupplierCreated, setOpen }) => {
           className="border border-black mb-6 p-1"
           value={form.state}
           onChange={(e) => setForm({ ...form, state: e.target.value })}
-        />
-
-        <label htmlFor="" className="pb-1 font-semibold">
-          GST_Number
-        </label>
-        <input
-          type="text"
-          className="border border-black mb-4 p-1"
-          value={form.gstNumber}
-          onChange={(e) => {
-            setForm({ ...form, gstNumber: e.target.value });
-          }}
-          placeholder="GSTIN-XXXX"
         />
 
         <button
