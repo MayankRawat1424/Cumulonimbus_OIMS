@@ -15,11 +15,11 @@ const ProductTable = ({
   if (loading) return <p>Loading products...</p>;
 
   return (
-    <div className="bg-white w-5/6 mx-auto mt-8 p-8 border-2 border-gray-300">
+    <div className="bg-white ml-6 mx-auto mt-8 p-8 h-fit h-max-164 shadow-md rounded-md">
       <div className="flex justify-between">
         <h1 className="font-bold text-3xl mb-6">Inventory</h1>
         <button
-          className="mb-6 px-2 border-2 border-gray-600 hover:cursor-pointer hover:bg-gray-600 hover:text-white active:bg-gray-800"
+          className="mb-6 px-2 border-2 border-neutral-900 hover:cursor-pointer hover:bg-neutral-900 hover:text-white active:bg-neutral-900 transition-all duration-75"
           onClick={() => {
             setOpen(true);
           }}
@@ -34,13 +34,13 @@ const ProductTable = ({
         <div className="overflow-x-auto">
           <table className="w-full border border-gray-300">
             <thead>
-              <tr className="bg-gray-300 text-gray-800 text-left">
-                <th className="px-2 py-1">id</th>
-                <th className="px-2 py-1">Product</th>
-                <th className="px-2 py-1">Category</th>
-                <th className="px-2 py-1">Price</th>
-                <th className="px-2 py-1">Quantity</th>
-                <th className="px-2 py-1">In Stock</th>
+              <tr className="bg-neutral-800 text-white text-left">
+                <th className="px-2 py-2">id</th>
+                <th className="px-2 py-2">Product</th>
+                <th className="px-2 py-2">Category</th>
+                <th className="px-2 py-2">Marked Price</th>
+                <th className="px-2 py-2">Quantity</th>
+                <th className="px-2 py-2">In Stock</th>
               </tr>
             </thead>
             <tbody className="">

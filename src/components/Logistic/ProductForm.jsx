@@ -82,7 +82,7 @@ const ProductForm = ({ onProductCreated, setOpen }) => {
       <div className="flex justify-between">
         <h1 className="font-bold text-3xl mb-6 ">Create Product</h1>
         <button
-          className="mb-6 px-2 border-2 border-gray-600 hover:cursor-pointer hover:bg-gray-600 hover:text-white active:bg-gray-800"
+          className="mb-6 px-2 border-2 border-neutral-900 hover:cursor-pointer hover:bg-neutral-900 hover:text-white active:bg-neutral-900 transition-all duration-75"
           onClick={() => {
             setOpen(false);
           }}

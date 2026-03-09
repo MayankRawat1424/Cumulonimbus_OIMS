@@ -1,38 +1,21 @@
 import React from "react";
 
-const ProductNav = ({ setNav }) => {
+const SupplierNav = ({ setNav }) => {
+  const navItems = ["Supplier List", "Create Order", "Order History"];
+
   return (
-    <>
-      <div className="bg-white flex flex-col items-start font-semibold text-lg gap-4 border-r-2 border-gray-300 pt-4 h-screen">
+    <div className="bg-white flex flex-col items-start font-semibold text-lg gap-2 pt-6 h-full shadow-md">
+      {navItems.map((item) => (
         <button
-          className="w-full text-left py-2 hover:cursor-pointer hover:underline"
-          onClick={() => {
-            setNav("Supplier List");
-          }}
+          key={item}
+          className="w-full text-left py-2 px-6 transition-all duration-100 hover:bg-blue-50 hover:text-blue-600 hover:border-l-4 border-blue-500 cursor-pointer"
+          onClick={() => setNav(item)}
         >
-          Supplier List
+          {item}
         </button>
-
-        <button
-          className="w-full text-left py-2 hover:cursor-pointer hover:underline"
-          onClick={() => {
-            setNav("Create Order");
-          }}
-        >
-          Create Order
-        </button>
-
-        <button
-          className="w-full text-left py-2 hover:cursor-pointer hover:underline"
-          onClick={() => {
-            setNav("Order History");
-          }}
-        >
-          Order History
-        </button>
-      </div>
-    </>
+      ))}
+    </div>
   );
 };
 
-export default ProductNav;
+export default SupplierNav;

@@ -101,7 +101,7 @@ const SupplierDetail = ({
                 onChange={(e) =>
                   setSupplier({ ...Supplier, supplierName: e.target.value })
                 }
-                className="border border-black px-2 py-1"
+                className="border border-black px-2"
                 placeholder="Supplier Name"
               />
             </div>
