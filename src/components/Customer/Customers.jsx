@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import CustomerForm from "./CustomerForm";
 import CustomerTable from "./CustomerTable";
 import CustomerNav from "./CustomerNav";
@@ -31,10 +30,12 @@ const Customer = () => {
       {open && (
         <CustomerForm onCustomerCreated={fetchCustomer} setOpen={setOpen} />
       )}
-      <div className="grid grid-cols-5 h-screen mx-8">
-        <div className="col-span-1">
+
+      <div className="grid grid-cols-5 min-h-screen px-6 bg-gray-100">
+        <div className="col-span-1 -ml-6">
           <CustomerNav />
         </div>
+
         <div className="col-span-4">
           <CustomerTable
             customers={customers}

@@ -77,7 +77,7 @@ const ProductDetail = ({ setLoadProductDetail, productId, fetchProduct }) => {
   };
 
   return (
-    <div className="bg-white w-5/6 mx-auto my-8 p-8 border-2 border-gray-300">
+    <div className="bg-white w-5/6 mx-auto my-8 p-8 shadow-md">
       {loading ? (
         <div className="flex justify-between">
           <p>loading</p>
@@ -104,7 +104,7 @@ const ProductDetail = ({ setLoadProductDetail, productId, fetchProduct }) => {
               />
             </div>
             <button
-              className="mb-6 px-2 border-2 border-gray-600 hover:cursor-pointer hover:bg-gray-600 hover:text-white active:bg-gray-800"
+              className="mb-6 px-2 border-2 border-neutral-900 hover:cursor-pointer hover:bg-neutral-900 hover:text-white active:bg-neutral-900 transition-all duration-75"
               onClick={() => {
                 setLoadProductDetail(false);
               }}

@@ -9,7 +9,7 @@ const Suppliers = () => {
   const [open, setOpen] = useState(false);
   const [suppliers, setSuppliers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [nav, setNav] = useState("Suppliers");
+  const [nav, setNav] = useState("Supplier List");
   const [loadSupplierDetail, setLoadSupplierDetail] = useState(false);
   const [supplierId, setSupplierId] = useState(null);
 
@@ -35,8 +35,9 @@ const Suppliers = () => {
       {open && (
         <SupplierForm setOpen={setOpen} onSupplierCreated={fetchSupplier} />
       )}
-      <div className="grid grid-cols-5 h-screen ml-8 pr-8 bg-neutral-50">
-        <div className="col-span-1">
+
+      <div className="grid grid-cols-5 min-h-screen px-6 bg-gray-100">
+        <div className="col-span-1 -ml-6">
           <SupplierNav setNav={setNav} />
         </div>
 

@@ -42,8 +42,8 @@ const Products = () => {
       {open && (
         <ProductForm onProductCreated={fetchProduct} setOpen={setOpen} />
       )}
-      <div className="grid grid-cols-5 h-screen ml-8 pr-8 bg-neutral-50">
-        <div className="col-span-1">
+      <div className="grid grid-cols-5 min-h-screen px-6 bg-gray-100">
+        <div className="col-span-1 -ml-6">
           <ProductNav setNav={setNav} />
         </div>
         {loadProductDetail ? (

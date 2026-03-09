@@ -1,67 +1,28 @@
 import React from "react";
 
 const ProductNav = ({ setNav }) => {
+  const navItems = [
+    "Inventory",
+    "Stock Valuation",
+    "Profit & Margin Analysis",
+    "Out of Stock Items",
+    "Sales Trends",
+    "Demand Forecasting",
+    "Seasonal Trends",
+  ];
+
   return (
-    <>
-      <div className="bg-white flex flex-col items-start font-semibold text-lg gap-4 border-r-2 border-gray-300 pt-4 h-screen">
+    <div className="bg-white flex flex-col items-start font-semibold text-lg gap-2 pt-6 h-full shadow-md">
+      {navItems.map((item) => (
         <button
-          className="w-full text-left py-2 hover:cursor-pointer hover:underline"
-          onClick={() => {
-            setNav("Inventory");
-          }}
+          key={item}
+          className="w-full text-left py-2 px-6 transition-all duration-100 hover:bg-blue-50 hover:text-blue-600 hover:border-l-4 border-blue-500 cursor-pointer"
+          onClick={() => setNav(item)}
         >
-          Inventory
+          {item}
         </button>
-        <button
-          className="w-full text-left py-2 hover:cursor-pointer hover:underline"
-          onClick={() => {
-            setNav("Stock Valuation");
-          }}
-        >
-          Stock Valuation
-        </button>
-        <button
-          className="w-full text-left py-2 hover:cursor-pointer hover:underline"
-          onClick={() => {
-            setNav("Profit & Margin Analysis");
-          }}
-        >
-          Profit & Margin Analysis
-        </button>
-        <button
-          className="w-full text-left py-2 hover:cursor-pointer hover:underline"
-          onClick={() => {
-            setNav("Out of Stock Items");
-          }}
-        >
-          Out of Stock Items
-        </button>
-        <button
-          className="w-full text-left py-2 hover:cursor-pointer hover:underline"
-          onClick={() => {
-            setNav("Sales Trends");
-          }}
-        >
-          Sales Trends
-        </button>
-        <button
-          className="w-full text-left py-2 hover:cursor-pointer hover:underline"
-          onClick={() => {
-            setNav("Demand Forecasting");
-          }}
-        >
-          Demand Forecasting
-        </button>
-        <button
-          className="w-full text-left py-2 hover:cursor-pointer hover:underline"
-          onClick={() => {
-            setNav("Seasonal Trends");
-          }}
-        >
-          Seasonal Trends
-        </button>
-      </div>
-    </>
+      ))}
+    </div>
   );
 };
 
