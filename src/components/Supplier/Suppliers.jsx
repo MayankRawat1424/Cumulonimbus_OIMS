@@ -4,6 +4,7 @@ import SupplierTable from "./SupplierTable";
 import SupplierNav from "./SupplierNav";
 import SupplierDetail from "./SupplierDetail";
 import CreateOrder from "./Nav/CreateOrder";
+import OrderHistory from "./Nav/OrderHistory";
 
 const Suppliers = () => {
   const [open, setOpen] = useState(false);
@@ -64,7 +65,9 @@ const Suppliers = () => {
             <CreateOrder />
           </div>
         ) : nav === "Order History" ? (
-          <div className="col-span-4"></div>
+          <div className="col-span-4">
+            <OrderHistory />
+          </div>
         ) : (
           setNav("Supplier List")
         )}

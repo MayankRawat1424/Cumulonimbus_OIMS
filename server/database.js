@@ -118,7 +118,6 @@ db.run(`
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     orderId INTEGER NOT NULL,
     status INTEGER NOT NULL CHECK(status IN (0,1,2,3)),
-    estimatedDeliveryDate DATETIME,
 
     FOREIGN KEY (orderId)
       REFERENCES supplier_orders(id)
