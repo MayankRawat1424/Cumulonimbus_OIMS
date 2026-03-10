@@ -3,7 +3,7 @@ import React from "react";
 const Kanban = () => {
   return (
     <div className="bg-white ml-6 mt-8 p-8 shadow-md">
-      <h1 className="font-bold text-3xl mb-6">Stockflow</h1>
+      <h1 className="font-bold text-3xl mb-6 font-heading">Stockflow</h1>
 
       <div className="grid grid-cols-4 gap-6">
         {/* Backlog */}

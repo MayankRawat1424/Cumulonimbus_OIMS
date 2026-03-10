@@ -61,7 +61,9 @@ const CustomerForm = ({ onCustomerCreated, setOpen }) => {
   return (
     <div className="w-2/5 py-6 px-8 mx-auto shadow-lg/20 bg-white fixed inset-8 overflow-y-scroll border-2 border-gray-500">
       <div className="flex justify-between">
-        <h1 className="font-bold text-3xl mb-6 ">Create Customer</h1>
+        <h1 className="font-bold text-3xl mb-6 font-heading">
+          Create Customer
+        </h1>
         <button
           className="mb-6 px-2 border-2 border-gray-600 hover:cursor-pointer hover:bg-gray-600 hover:text-white active:bg-gray-800"
           onClick={() => {
@@ -118,9 +120,7 @@ const CustomerForm = ({ onCustomerCreated, setOpen }) => {
         <textarea
           className="border border-black mb-6 px-1 h-32"
           value={form.address}
-          onChange={(e) =>
-            setForm({ ...form, address: e.target.value })
-          }
+          onChange={(e) => setForm({ ...form, address: e.target.value })}
           placeholder="Address"
         />
 
@@ -138,43 +138,40 @@ const CustomerForm = ({ onCustomerCreated, setOpen }) => {
 
         <label className="pb-1 font-semibold">Gender</label>
 
-<div className="flex gap-6 mb-6">
+        <div className="flex gap-6 mb-6">
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name="gender"
+              value="Male"
+              checked={form.gender === "Male"}
+              onChange={(e) => setForm({ ...form, gender: e.target.value })}
+            />
+            Male
+          </label>
 
-  <label className="flex items-center gap-2">
-    <input
-      type="radio"
-      name="gender"
-      value="Male"
-      checked={form.gender === "Male"}
-      onChange={(e) => setForm({ ...form, gender: e.target.value })}
-    />
-    Male
-  </label>
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name="gender"
+              value="Female"
+              checked={form.gender === "Female"}
+              onChange={(e) => setForm({ ...form, gender: e.target.value })}
+            />
+            Female
+          </label>
 
-  <label className="flex items-center gap-2">
-    <input
-      type="radio"
-      name="gender"
-      value="Female"
-      checked={form.gender === "Female"}
-      onChange={(e) => setForm({ ...form, gender: e.target.value })}
-    />
-    Female
-  </label>
-
-  <label className="flex items-center gap-2">
-    <input
-      type="radio"
-      name="gender"
-      value="Loser"
-      checked={form.gender === "Loser"}
-      onChange={(e) => setForm({ ...form, gender: e.target.value })}
-    />
-    Loser
-  </label>
-
-</div>
-
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name="gender"
+              value="Loser"
+              checked={form.gender === "Loser"}
+              onChange={(e) => setForm({ ...form, gender: e.target.value })}
+            />
+            Loser
+          </label>
+        </div>
 
         <button
           className="bg-blue-500 text-white p-2 w-32 my-4 hover:bg-blue-600 hover:cursor-pointer"

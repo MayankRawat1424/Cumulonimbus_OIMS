@@ -1,1 +1,5 @@
+@config "../tailwind.config.js";
 @import "tailwindcss";
+body {
+  font-family: "Inter", sans-serif;
+}

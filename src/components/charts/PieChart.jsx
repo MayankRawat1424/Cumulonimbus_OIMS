@@ -8,7 +8,7 @@ const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: "bottom", // 🔥 This moves labels below
+      position: "bottom",
     },
   },
 };
@@ -25,21 +25,21 @@ const PieChart = ({ chartData }) => {
         data: chartData.values,
         label: "Distribution",
         backgroundColor: [
-          "rgba(255, 99, 132, 0.6)", // red
-          "rgba(54, 162, 235, 0.6)", // blue
-          "rgba(255, 206, 86, 0.6)", // yellow
-          "rgba(75, 192, 192, 0.6)", // teal
-          "rgba(153, 102, 255, 0.6)", // purple
-          "rgba(255, 159, 64, 0.6)", // orange
-          "rgba(199, 199, 199, 0.6)", // gray
-          "rgba(83, 102, 255, 0.6)", // indigo
-          "rgba(255, 99, 255, 0.6)", // pink
-          "rgba(99, 255, 132, 0.6)", // green
-          "rgba(255, 205, 210, 0.6)", // light pink
-          "rgba(129, 212, 250, 0.6)", // sky blue
-          "rgba(255, 241, 118, 0.6)", // light yellow
-          "rgba(174, 213, 129, 0.6)", // light green
-          "rgba(179, 157, 219, 0.6)", // lavender
+          "rgba(255, 99, 132, 0.75)", // red
+          "rgba(54, 162, 235, 0.75)", // blue
+          "rgba(255, 206, 86, 0.75)", // yellow
+          "rgba(75, 192, 192, 0.75)", // teal
+          "rgba(153, 102, 255, 0.75)", // purple
+          "rgba(255, 159, 64, 0.75)", // orange
+          "rgba(201, 203, 207, 0.75)", // gray
+          "rgba(102, 126, 255, 0.75)", // indigo
+          "rgba(255, 105, 180, 0.75)", // pink
+          "rgba(76, 217, 100, 0.75)", // green
+          "rgba(255, 182, 193, 0.75)", // light pink
+          "rgba(100, 181, 246, 0.75)", // sky blue
+          "rgba(255, 235, 120, 0.75)", // light yellow
+          "rgba(156, 204, 101, 0.75)", // light green
+          "rgba(179, 157, 219, 0.75)", // lavender
         ],
       },
     ],
