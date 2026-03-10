@@ -42,7 +42,9 @@ const CreateOrder = () => {
 
   return (
     <div className="bg-white w-5/6 mx-auto my-8 p-8 border-2 border-gray-300">
-      <h1 className="text-3xl font-bold mb-6">Create Supplier Order</h1>
+      <h1 className="text-3xl font-bold mb-6 font-heading">
+        Create Supplier Order
+      </h1>
 
       {/* Search */}
       <div className="mb-6 flex flex-col">

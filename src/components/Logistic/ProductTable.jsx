@@ -17,7 +17,7 @@ const ProductTable = ({
   return (
     <div className="bg-white ml-6 mx-auto mt-8 p-8 h-fit h-max-164 shadow-md rounded-md">
       <div className="flex justify-between">
-        <h1 className="font-bold text-3xl mb-6">Inventory</h1>
+        <h1 className="font-bold text-3xl mb-6 font-heading">Inventory</h1>
         <button
           className="mb-6 px-2 border-2 border-neutral-900 hover:cursor-pointer hover:bg-neutral-900 hover:text-white active:bg-neutral-900 transition-all duration-75"
           onClick={() => {

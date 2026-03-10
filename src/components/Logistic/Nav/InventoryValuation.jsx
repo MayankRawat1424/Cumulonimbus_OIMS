@@ -42,7 +42,7 @@ const InventoryValuation = () => {
         </div>
       ))} */}
       <div className="w-full">
-        <div className="flex items-center justify-center w-2/5 mx-auto">
+        <div className="flex items-center justify-center w-2/5 mx-auto bg-white rounded-lg shadow-md p-4 mt-8">
           {chartData && <PieChart chartData={chartData} />}
         </div>
       </div>

@@ -13,7 +13,9 @@ const OutOfStock = ({
   return (
     <div className="bg-white ml-6 mx-auto mt-8 p-8 h-fit shadow-md">
       <div className="flex justify-between">
-        <h1 className="font-bold text-3xl mb-6">Out of Stock Products</h1>
+        <h1 className="font-bold text-3xl mb-6 font-heading">
+          Out of Stock Products
+        </h1>
       </div>
 
       {!outOfStockProducts || outOfStockProducts.length === 0 ? (

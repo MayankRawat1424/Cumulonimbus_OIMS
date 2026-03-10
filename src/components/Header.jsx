@@ -5,8 +5,8 @@ const Header = ({ setWindow }) => {
     <header className="top-0 z-5 ">
       <div className="grid grid-cols-5 items-center h-16 bg-white border-b-2 border-gray-300 px-6">
         <div className="col-span-1 h-full flex items-center">
-          <h1 className="font-semibold text-blue-600 text-2xl font-serif">
-            Cumulonimbus .
+          <h1 className="font-bold text-blue-600 text-2xl font-logo">
+            Cumulonimbus
           </h1>
         </div>
         <div className="col-span-4">
