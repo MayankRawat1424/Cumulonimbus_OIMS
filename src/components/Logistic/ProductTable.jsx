@@ -15,7 +15,7 @@ const ProductTable = ({
   if (loading) return <p>Loading products...</p>;
 
   return (
-    <div className="bg-white ml-6 mx-auto mt-8 p-8 h-fit h-max-164 shadow-md rounded-md">
+    <div className="bg-white ml-6 mx-auto mt-8 p-8 h-fit h-max-164 shadow-md">
       <div className="flex justify-between">
         <h1 className="font-bold text-3xl mb-6 font-heading">Inventory</h1>
         <button
