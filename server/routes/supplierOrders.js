@@ -98,4 +98,37 @@ router.get("/supplierOrders", (req, res) => {
   });
 });
 
+router.get("/supplierOrders/:id", (req, res) => {
+  const { id } = req.params;
+
+  const query = `
+    SELECT 
+      so.id as orderId,
+      s.supplierName,
+      so.totalAmount,
+      sos.status
+    FROM supplier_orders so
+    JOIN suppliers s ON so.supplierId = s.id
+    JOIN supplier_order_status sos ON sos.orderId = so.id
+    WHERE so.id = ?
+  `;
+
+  db.get(query, [id], (err, row) => {
+    if (err) {
+      return res.status(500).json({
+        message: "Failed to fetch order",
+        error: err.message,
+      });
+    }
+
+    if (!row) {
+      return res.status(404).json({
+        message: "Order not found",
+      });
+    }
+
+    res.json(row);
+  });
+});
+
 export default router;
