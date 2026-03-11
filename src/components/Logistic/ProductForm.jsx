@@ -78,159 +78,163 @@ const ProductForm = ({ onProductCreated, setOpen }) => {
   };
 
   return (
-    <div className="w-2/5 py-6 px-8 mx-auto shadow-lg/20 bg-white fixed inset-8 overflow-y-scroll border-2 border-gray-500">
-      <div className="flex justify-between">
-        <h1 className="font-bold text-3xl mb-6 font-heading">Create Product</h1>
-        <button
-          className="mb-6 px-2 border-2 border-neutral-900 hover:cursor-pointer hover:bg-neutral-900 hover:text-white active:bg-neutral-900 transition-all duration-75"
-          onClick={() => {
-            setOpen(false);
-          }}
-        >
-          Close
-        </button>
+    <div className="fixed inset-0  z-10 bg-black/50">
+      <div className="w-2/5 py-6 px-8 mx-auto shadow-lg/20 bg-white fixed inset-8 overflow-y-scroll border-2 border-gray-500">
+        <div className="flex justify-between">
+          <h1 className="font-bold text-3xl mb-6 font-heading">
+            Create Product
+          </h1>
+          <button
+            className="mb-6 px-2 border-2 border-neutral-900 hover:cursor-pointer hover:bg-neutral-900 hover:text-white active:bg-neutral-900 transition-all duration-75"
+            onClick={() => {
+              setOpen(false);
+            }}
+          >
+            Close
+          </button>
+        </div>
+
+        <form action="" className="flex flex-col">
+          <label htmlFor="" className="pb-1 font-semibold">
+            Product Name
+          </label>
+          <input
+            type="text"
+            className="border border-black mb-6 p-1"
+            value={form.productName}
+            onChange={(e) => {
+              setForm({ ...form, productName: e.target.value });
+            }}
+            placeholder="product name"
+          />
+
+          <label htmlFor="" className="pb-1 font-semibold">
+            Product Description
+          </label>
+          <textarea
+            className="border border-black mb-6 px-1 h-32"
+            value={form.productDescription}
+            onChange={(e) =>
+              setForm({ ...form, productDescription: e.target.value })
+            }
+            placeholder="Describe the product"
+          />
+
+          <label htmlFor="" className="pb-1 font-semibold">
+            Color
+          </label>
+          <input
+            type="color"
+            id="colorPicker"
+            name="colorPicker"
+            className="w-full mb-6"
+            value={form.color}
+            onChange={(e) => {
+              setForm({ ...form, color: e.target.value });
+            }}
+          />
+
+          <label htmlFor="" className="pb-1 font-semibold">
+            Sub-Category
+          </label>
+          <select
+            className="border border-black mb-6 px-1 py-1"
+            value={form.subCategory}
+            onChange={(e) => {
+              setForm({ ...form, subCategory: e.target.value });
+            }}
+          >
+            <option value="">SELECT SUB CATEGORY</option>
+
+            {SubCategories.map((item) => (
+              <option key={item.id} value={item.value}>
+                {item.label}
+              </option>
+            ))}
+          </select>
+
+          <label htmlFor="" className="pb-1 font-semibold">
+            Model
+          </label>
+          <input
+            type="text"
+            className="border border-black mb-6 p-1"
+            value={form.model}
+            onChange={(e) => setForm({ ...form, model: e.target.value })}
+            placeholder="Make/ Model/ Year"
+          />
+
+          <label htmlFor="" className="pb-1 font-semibold">
+            Marked Price
+          </label>
+          <input
+            type="number"
+            className="border border-black mb-6 p-1"
+            value={form.price}
+            onChange={(e) => {
+              setForm({ ...form, price: e.target.value });
+            }}
+            min={0}
+          />
+
+          <label htmlFor="" className="pb-1 font-semibold">
+            Cost Price
+          </label>
+          <input
+            type="number"
+            className="border border-black mb-6 p-1"
+            value={form.costPrice}
+            onChange={(e) => {
+              setForm({ ...form, costPrice: e.target.value });
+            }}
+            min={0}
+          />
+
+          <label htmlFor="" className="pb-1 font-semibold">
+            Quantity
+          </label>
+          <input
+            type="number"
+            className="border border-black mb-6 p-1"
+            value={form.quantity}
+            onChange={(e) => {
+              setForm({ ...form, quantity: e.target.value });
+            }}
+            min={0}
+          />
+
+          <label htmlFor="" className="pb-1 font-semibold">
+            Unit
+          </label>
+          <input
+            type="text"
+            className="border border-black mb-6 p-1"
+            value={form.unit}
+            onChange={(e) => setForm({ ...form, unit: e.target.value })}
+            placeholder="kg/ ml/ fl/ oz"
+          />
+
+          <label htmlFor="" className="pb-1 font-semibold">
+            Stock
+          </label>
+          <input
+            type="number"
+            className="border border-black mb-4 p-1"
+            value={form.stock}
+            onChange={(e) => {
+              setForm({ ...form, stock: e.target.value });
+            }}
+            min={0}
+          />
+
+          <button
+            className="bg-blue-500 text-white p-2 w-32 my-4 hover:bg-blue-600 hover:cursor-pointer"
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+        </form>
       </div>
-
-      <form action="" className="flex flex-col">
-        <label htmlFor="" className="pb-1 font-semibold">
-          Product Name
-        </label>
-        <input
-          type="text"
-          className="border border-black mb-6 p-1"
-          value={form.productName}
-          onChange={(e) => {
-            setForm({ ...form, productName: e.target.value });
-          }}
-          placeholder="product name"
-        />
-
-        <label htmlFor="" className="pb-1 font-semibold">
-          Product Description
-        </label>
-        <textarea
-          className="border border-black mb-6 px-1 h-32"
-          value={form.productDescription}
-          onChange={(e) =>
-            setForm({ ...form, productDescription: e.target.value })
-          }
-          placeholder="Describe the product"
-        />
-
-        <label htmlFor="" className="pb-1 font-semibold">
-          Color
-        </label>
-        <input
-          type="color"
-          id="colorPicker"
-          name="colorPicker"
-          className="w-full mb-6"
-          value={form.color}
-          onChange={(e) => {
-            setForm({ ...form, color: e.target.value });
-          }}
-        />
-
-        <label htmlFor="" className="pb-1 font-semibold">
-          Sub-Category
-        </label>
-        <select
-          className="border border-black mb-6 px-1 py-1"
-          value={form.subCategory}
-          onChange={(e) => {
-            setForm({ ...form, subCategory: e.target.value });
-          }}
-        >
-          <option value="">SELECT SUB CATEGORY</option>
-
-          {SubCategories.map((item) => (
-            <option key={item.id} value={item.value}>
-              {item.label}
-            </option>
-          ))}
-        </select>
-
-        <label htmlFor="" className="pb-1 font-semibold">
-          Model
-        </label>
-        <input
-          type="text"
-          className="border border-black mb-6 p-1"
-          value={form.model}
-          onChange={(e) => setForm({ ...form, model: e.target.value })}
-          placeholder="Make/ Model/ Year"
-        />
-
-        <label htmlFor="" className="pb-1 font-semibold">
-          Marked Price
-        </label>
-        <input
-          type="number"
-          className="border border-black mb-6 p-1"
-          value={form.price}
-          onChange={(e) => {
-            setForm({ ...form, price: e.target.value });
-          }}
-          min={0}
-        />
-
-        <label htmlFor="" className="pb-1 font-semibold">
-          Cost Price
-        </label>
-        <input
-          type="number"
-          className="border border-black mb-6 p-1"
-          value={form.costPrice}
-          onChange={(e) => {
-            setForm({ ...form, costPrice: e.target.value });
-          }}
-          min={0}
-        />
-
-        <label htmlFor="" className="pb-1 font-semibold">
-          Quantity
-        </label>
-        <input
-          type="number"
-          className="border border-black mb-6 p-1"
-          value={form.quantity}
-          onChange={(e) => {
-            setForm({ ...form, quantity: e.target.value });
-          }}
-          min={0}
-        />
-
-        <label htmlFor="" className="pb-1 font-semibold">
-          Unit
-        </label>
-        <input
-          type="text"
-          className="border border-black mb-6 p-1"
-          value={form.unit}
-          onChange={(e) => setForm({ ...form, unit: e.target.value })}
-          placeholder="kg/ ml/ fl/ oz"
-        />
-
-        <label htmlFor="" className="pb-1 font-semibold">
-          Stock
-        </label>
-        <input
-          type="number"
-          className="border border-black mb-4 p-1"
-          value={form.stock}
-          onChange={(e) => {
-            setForm({ ...form, stock: e.target.value });
-          }}
-          min={0}
-        />
-
-        <button
-          className="bg-blue-500 text-white p-2 w-32 my-4 hover:bg-blue-600 hover:cursor-pointer"
-          onClick={handleSubmit}
-        >
-          Submit
-        </button>
-      </form>
     </div>
   );
 };

@@ -59,127 +59,129 @@ const CustomerForm = ({ onCustomerCreated, setOpen }) => {
   };
 
   return (
-    <div className="w-2/5 py-6 px-8 mx-auto shadow-lg/20 bg-white fixed inset-8 overflow-y-scroll border-2 border-gray-500">
-      <div className="flex justify-between">
-        <h1 className="font-bold text-3xl mb-6 font-heading">
-          Create Customer
-        </h1>
-        <button
-          className="mb-6 px-2 border-2 border-gray-600 hover:cursor-pointer hover:bg-gray-600 hover:text-white active:bg-gray-800"
-          onClick={() => {
-            setOpen(false);
-          }}
-        >
-          Close
-        </button>
-      </div>
-
-      <form action="" className="flex flex-col">
-        <label htmlFor="" className="pb-1 font-semibold">
-          Customer Name
-        </label>
-        <input
-          type="text"
-          className="border border-black mb-6 p-1"
-          value={form.customerName}
-          onChange={(e) => {
-            setForm({ ...form, customerName: e.target.value });
-          }}
-          placeholder="Customer name"
-        />
-
-        <label htmlFor="" className="pb-1 font-semibold">
-          Phone
-        </label>
-        <input
-          type="tel"
-          className="border border-black mb-6 p-1"
-          value={form.phone}
-          onChange={(e) => {
-            setForm({ ...form, phone: e.target.value });
-          }}
-          placeholder="Contact details(phone number)"
-        />
-
-        <label htmlFor="" className="pb-1 font-semibold">
-          Email
-        </label>
-        <input
-          type="text"
-          className="border border-black mb-6 p-1"
-          value={form.email}
-          onChange={(e) => {
-            setForm({ ...form, email: e.target.value });
-          }}
-          placeholder="Email"
-        />
-
-        <label htmlFor="" className="pb-1 font-semibold">
-          address
-        </label>
-        <textarea
-          className="border border-black mb-6 px-1 h-32"
-          value={form.address}
-          onChange={(e) => setForm({ ...form, address: e.target.value })}
-          placeholder="Address"
-        />
-
-        <label htmlFor="" className="pb-1 font-semibold">
-          Age
-        </label>
-        <input
-          type="number"
-          className="border border-black mb-6 p-1"
-          value={form.age}
-          onChange={(e) => setForm({ ...form, age: e.target.value })}
-          placeholder="Age"
-          min={0}
-        />
-
-        <label className="pb-1 font-semibold">Gender</label>
-
-        <div className="flex gap-6 mb-6">
-          <label className="flex items-center gap-2">
-            <input
-              type="radio"
-              name="gender"
-              value="Male"
-              checked={form.gender === "Male"}
-              onChange={(e) => setForm({ ...form, gender: e.target.value })}
-            />
-            Male
-          </label>
-
-          <label className="flex items-center gap-2">
-            <input
-              type="radio"
-              name="gender"
-              value="Female"
-              checked={form.gender === "Female"}
-              onChange={(e) => setForm({ ...form, gender: e.target.value })}
-            />
-            Female
-          </label>
-
-          <label className="flex items-center gap-2">
-            <input
-              type="radio"
-              name="gender"
-              value="Loser"
-              checked={form.gender === "Loser"}
-              onChange={(e) => setForm({ ...form, gender: e.target.value })}
-            />
-            Loser
-          </label>
+    <div className="fixed inset-0  z-10 bg-black/50">
+      <div className="w-2/5 py-6 px-8 mx-auto shadow-lg/20 bg-white fixed inset-8 overflow-y-scroll border-2 border-gray-500">
+        <div className="flex justify-between">
+          <h1 className="font-bold text-3xl mb-6 font-heading">
+            Create Customer
+          </h1>
+          <button
+            className="mb-6 px-2 border-2 border-gray-600 hover:cursor-pointer hover:bg-gray-600 hover:text-white active:bg-gray-800"
+            onClick={() => {
+              setOpen(false);
+            }}
+          >
+            Close
+          </button>
         </div>
 
-        <button
-          className="bg-blue-500 text-white p-2 w-32 my-4 hover:bg-blue-600 hover:cursor-pointer"
-          onClick={handleSubmit}
-        >
-          Submit
-        </button>
-      </form>
+        <form action="" className="flex flex-col">
+          <label htmlFor="" className="pb-1 font-semibold">
+            Customer Name
+          </label>
+          <input
+            type="text"
+            className="border border-black mb-6 p-1"
+            value={form.customerName}
+            onChange={(e) => {
+              setForm({ ...form, customerName: e.target.value });
+            }}
+            placeholder="Customer name"
+          />
+
+          <label htmlFor="" className="pb-1 font-semibold">
+            Phone
+          </label>
+          <input
+            type="tel"
+            className="border border-black mb-6 p-1"
+            value={form.phone}
+            onChange={(e) => {
+              setForm({ ...form, phone: e.target.value });
+            }}
+            placeholder="Contact details(phone number)"
+          />
+
+          <label htmlFor="" className="pb-1 font-semibold">
+            Email
+          </label>
+          <input
+            type="text"
+            className="border border-black mb-6 p-1"
+            value={form.email}
+            onChange={(e) => {
+              setForm({ ...form, email: e.target.value });
+            }}
+            placeholder="Email"
+          />
+
+          <label htmlFor="" className="pb-1 font-semibold">
+            address
+          </label>
+          <textarea
+            className="border border-black mb-6 px-1 h-32"
+            value={form.address}
+            onChange={(e) => setForm({ ...form, address: e.target.value })}
+            placeholder="Address"
+          />
+
+          <label htmlFor="" className="pb-1 font-semibold">
+            Age
+          </label>
+          <input
+            type="number"
+            className="border border-black mb-6 p-1"
+            value={form.age}
+            onChange={(e) => setForm({ ...form, age: e.target.value })}
+            placeholder="Age"
+            min={0}
+          />
+
+          <label className="pb-1 font-semibold">Gender</label>
+
+          <div className="flex gap-6 mb-6">
+            <label className="flex items-center gap-2">
+              <input
+                type="radio"
+                name="gender"
+                value="Male"
+                checked={form.gender === "Male"}
+                onChange={(e) => setForm({ ...form, gender: e.target.value })}
+              />
+              Male
+            </label>
+
+            <label className="flex items-center gap-2">
+              <input
+                type="radio"
+                name="gender"
+                value="Female"
+                checked={form.gender === "Female"}
+                onChange={(e) => setForm({ ...form, gender: e.target.value })}
+              />
+              Female
+            </label>
+
+            <label className="flex items-center gap-2">
+              <input
+                type="radio"
+                name="gender"
+                value="Rather Not Say"
+                checked={form.gender === "Rather Not Say"}
+                onChange={(e) => setForm({ ...form, gender: e.target.value })}
+              />
+              Rather Not Say
+            </label>
+          </div>
+
+          <button
+            className="bg-blue-500 text-white p-2 w-32 my-4 hover:bg-blue-600 hover:cursor-pointer"
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

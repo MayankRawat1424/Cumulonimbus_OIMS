@@ -14,7 +14,7 @@ const Header = ({ setWindow }) => {
             <p className="text-sm text-gray-500 pl-4">
               {/* Intuitive Retail & logistic solutions for your business */}
             </p>
-            <div className="text-sm font-semibold flex items-center gap-16">
+            <div className="font-semibold flex gap-16">
               <button
                 className="hover:underline hover:cursor-pointer hover:scale-105 transistion-transform duration-75"
                 onClick={() => {

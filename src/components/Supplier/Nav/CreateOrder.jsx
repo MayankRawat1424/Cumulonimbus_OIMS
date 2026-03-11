@@ -203,7 +203,7 @@ const CreateOrder = () => {
       </div>
 
       {/* Out of Stock List */}
-      <div className="mt-10">
+      <div className="mt-10 mb-6">
         <h2 className="text-xl font-semibold mb-4 text-red-600">
           Out of Stock Products
         </h2>
