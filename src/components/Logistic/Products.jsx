@@ -5,6 +5,7 @@ import ProductNav from "./ProductNav";
 import ProductDetail from "./ProductDetail";
 import InventoryValuation from "./Nav/InventoryValuation";
 import OutOfStock from "./Nav/OutOfStock";
+import Pma from "./Nav/Pma";
 
 const Products = () => {
   const [open, setOpen] = useState(false);
@@ -81,7 +82,17 @@ const Products = () => {
               setProductId={setProductId}
             />
           </div>
-        ) : (
+        ) : nav === "Profit & Margin Analysis" ? (
+            <div className="col-span-4">
+            <Pma
+              products={products}
+              loading={loading}
+              setOpen={setOpen}
+              setLoadProductDetail={setLoadProductDetail}
+              setProductId={setProductId}
+            />
+          </div>
+        ): (
           setNav("Inventory")
         )}
       </div>
