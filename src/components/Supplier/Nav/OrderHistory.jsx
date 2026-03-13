@@ -14,9 +14,9 @@ const OrderHistory = () => {
   }, []);
 
   const statusMap = {
-    0: "Pending",
-    1: "Ordered",
-    2: "Shipped",
+    0: "Backlog",
+    1: "To Order",
+    2: "Ordered",
     3: "Delivered",
   };
 

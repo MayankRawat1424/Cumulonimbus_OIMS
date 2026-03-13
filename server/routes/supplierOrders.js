@@ -17,7 +17,7 @@ router.post("/supplierOrders", (req, res) => {
     VALUES (?, ?)
   `;
 
-  db.run(insertOrderQuery, [supplierId, 0], function (err) {
+  db.run(insertOrderQuery, [supplierId, 1], function (err) {
     if (err) {
       return res.status(500).json({
         message: "Error creating order",
@@ -30,7 +30,7 @@ router.post("/supplierOrders", (req, res) => {
     db.run(
       `INSERT INTO supplier_order_status (orderId, status)
    VALUES (?, ?)`,
-      [orderId, 0],
+      [orderId, 1],
       (err) => {
         if (err) {
           console.error("Failed to insert order status:", err.message);
@@ -128,6 +128,37 @@ router.get("/supplierOrders/:id", (req, res) => {
     }
 
     res.json(row);
+  });
+});
+
+router.get("/supplierOrders/:id/items", (req, res) => {
+  const { id } = req.params;
+
+  const query = `
+    SELECT 
+      p.productName,
+      soi.quantity,
+      soi.pricePerItem,
+      (soi.quantity * soi.pricePerItem) as itemTotal
+    FROM supplier_orderItems soi
+    JOIN products p ON p.id = soi.productId
+    WHERE soi.orderId = ?
+  `;
+
+  db.all(query, [id], (err, rows) => {
+    if (err) {
+      return res.status(500).json({
+        message: "Failed to fetch order items",
+        error: err.message,
+      });
+    }
+
+    const total = rows.reduce((sum, item) => sum + item.itemTotal, 0);
+
+    res.json({
+      items: rows,
+      total,
+    });
   });
 });
 

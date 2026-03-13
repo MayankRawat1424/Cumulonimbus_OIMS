@@ -6,9 +6,9 @@ const ProductNav = ({ setNav }) => {
     "Stock Valuation",
     "Profit & Margin Analysis",
     "Out of Stock Items",
-    "Sales Trends",
-    "Demand Forecasting",
-    "Seasonal Trends",
+    // "Sales Trends",
+    // "Demand Forecasting",
+    // "Seasonal Trends",
   ];
 
   return (
