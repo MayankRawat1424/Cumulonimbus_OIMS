@@ -162,4 +162,34 @@ router.get("/supplierOrders/:id/items", (req, res) => {
   });
 });
 
+router.patch("/supplierOrders/:id/status", (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body;
+
+  if (status < 0 || status > 3) {
+    return res.status(400).json({
+      message: "Invalid status value",
+    });
+  }
+
+  db.run(
+    `UPDATE supplier_order_status SET status = ? WHERE orderId = ?`,
+    [status, id],
+    function (err) {
+      if (err) {
+        return res.status(500).json({
+          message: "Failed to update status",
+          error: err.message,
+        });
+      }
+
+      res.json({
+        message: "Status updated",
+        orderId: id,
+        status,
+      });
+    },
+  );
+});
+
 export default router;
