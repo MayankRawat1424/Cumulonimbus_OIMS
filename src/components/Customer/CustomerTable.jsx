@@ -1,6 +1,12 @@
 import React from "react";
 
-const CustomerTable = ({ customers, loading, setOpen }) => {
+const CustomerTable = ({
+  customers,
+  loading,
+  setOpen,
+  setLoadCustomerDetail,
+  setCustomerId
+}) => {
   if (loading) return <p>Loading customers...</p>;
 
   return (
@@ -36,7 +42,11 @@ const CustomerTable = ({ customers, loading, setOpen }) => {
               {customers.map((customer) => (
                 <tr
                   key={customer.id}
-                  className="border-b border-gray-300 hover:bg-gray-50"
+                  className="border-b border-gray-300 hover:bg-gray-50 cursor-pointer"
+                  onClick={() => {
+                    setCustomerId(customer.id);
+                    setLoadCustomerDetail(true);
+                  }}
                 >
                   <td className="px-2 py-1">{customer.id}</td>
                   <td className="px-2 py-1">{customer.customerName}</td>

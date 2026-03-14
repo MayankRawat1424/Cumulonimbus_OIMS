@@ -107,4 +107,34 @@ router.put("/customers/:id", (req, res) => {
   );
 });
 
+router.get("/customers/:id", (req, res) => {
+  const { id } = req.params;
+
+  const query = `SELECT id, customerName,
+      phone,
+      email,
+      address,
+      age,
+      gender
+      FROM customers
+      WHERE id = ?`;
+
+  db.get(query, [id], (err, row) => {
+    if (err) {
+      return res.status(500).json({
+        message: "Database error while fetching customer",
+        error: err.message,
+      });
+    }
+
+    if (!row) {
+      return res.status(404).json({
+        message: "Customer not found",
+      });
+    }
+
+    return res.json(row);
+  });
+});
+
 export default router;
